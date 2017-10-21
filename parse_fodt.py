@@ -25,7 +25,21 @@ def проректор(element):
 			re.sub(r"\s+", " ", re.sub(r"[\n\xa0_]", " ", element.get_text())).strip()
 		}
 	except Exception as e:
-		raise e
+		return None
+
+def умкд(element):
+	n = 0
+	while n < 10:
+		n += 1
+		element = element.nextSibling
+		try:
+			return {
+				"учебно-методический комплекс дисциплины":
+				re.findall(r'[«"](.*)[»"]', element.get_text())[0]
+			}
+		except AttributeError:
+			return None
+
 
 def safe_get_text(element):
 	try:
@@ -41,5 +55,8 @@ for p in s.find_all('p'):
 		rpd.update(кафедра(p))
 	if t == "проректор по учебной работе":
 		rpd.update(проректор(p))
+	if t == "учебно-методический комплекс дисциплины":
+		rpd.update(умкд(p))
+
 
 print(rpd)
