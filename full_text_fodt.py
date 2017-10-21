@@ -5,18 +5,25 @@ from bs4 import BeautifulSoup as BS
 from pymystem3 import Mystem
 from json import dumps
 
-s = BS(open(sys.argv[1]).read(), features="xml")
-m = Mystem()
-idx = {}
-terms = TE()(s.get_text())
-for term in terms:
-	for rez in m.analyze(str(term)):
-		try:
-			idx.update({rez['analysis'][0]['lex']:(term.count / len(terms))})
-		except:
-			pass
+Q = ['Кафедра информационных технологий',
+'Файзрахманов',
+'Проектирование информационных систем',
+'Проектирование сублимационных систем']
 
-print(dumps(idx, indent = 4, ensure_ascii = 0))
+m = Mystem()
+
+def index(text):
+	terms = TE()(text)
+	idx = {}
+
+	for term in terms:
+		for rez in m.analyze(str(term)):
+			try:
+				idx.update({rez['analysis'][0]['lex']:(term.count / len(terms))})
+			except:
+				pass
+
+	return idx
 
 def match(query, idx):
 	r = 0.0
@@ -29,9 +36,10 @@ def match(query, idx):
 			pass
 	return r / n
 
-Q = ['Кафедра информационных технологий',
-	 'Файзрахманов',
-	 'Проектирование информационных систем',
-	 'Проектирование сублимационных систем']
-for q in Q:
-	print(q, match(q, idx))
+
+if __name__ == '__main__':
+	idx = index(BS(open(sys.argv[1]).read(), features="xml").get_text())
+	print(dumps(idx, indent = 4, ensure_ascii = 0))
+
+	for q in Q:
+		print(q, match(q, idx))
