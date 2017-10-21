@@ -2,6 +2,7 @@ import sys
 import re
 
 from bs4 import BeautifulSoup as BS
+from json import dumps
 
 rpd = {}
 s = BS(open(sys.argv[1]).read(), features="xml")
@@ -24,8 +25,9 @@ def проректор(element):
 			"проректор по учебной работе":
 			re.sub(r"\s+", " ", re.sub(r"[\n\xa0_]", " ", element.get_text())).strip()
 		}
-	except Exception as e:
-		return None
+	except AttributeError:
+		pass
+	return None
 
 def умкд(element):
 	n = 0
@@ -38,7 +40,8 @@ def умкд(element):
 				re.findall(r'[«"](.*)[»"]', element.get_text())[0]
 			}
 		except AttributeError:
-			return None
+			pass
+	return None
 
 
 def safe_get_text(element):
@@ -59,4 +62,4 @@ for p in s.find_all('p'):
 		rpd.update(умкд(p))
 
 
-print(rpd)
+print(dumps(rpd, indent = 4, ensure_ascii = 0))
