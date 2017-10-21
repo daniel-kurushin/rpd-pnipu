@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><dc:title>Федеральное агентство по образованию</dc:title><meta:initial-creator>lex</meta:initial-creator><meta:creation-date>2016-06-20T19:31:00</meta:creation-date><dc:creator>itas kuleshov123</dc:creator><dc:date>2016-06-21T10:02:00</dc:date><meta:print-date>2016-06-20T20:00:00</meta:print-date><meta:editing-cycles>12</meta:editing-cycles><meta:editing-duration>PT27M</meta:editing-duration><meta:generator>LibreOffice/5.0.6.2$Linux_X86_64 LibreOffice_project/00m0$Build-2</meta:generator><meta:user-defined meta:name="Info 1"/><meta:user-defined meta:name="Info 2"/><meta:user-defined meta:name="Info 3"/><meta:user-defined meta:name="Info 4"/><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
+ <office:meta><dc:title>Федеральное агентство по образованию</dc:title><meta:initial-creator>lex</meta:initial-creator><meta:creation-date>2016-06-20T19:31:00</meta:creation-date><dc:date>2017-10-20T18:43:46.373518396</dc:date><meta:print-date>2016-06-20T20:00:00</meta:print-date><meta:editing-cycles>13</meta:editing-cycles><meta:editing-duration>PT1H3M34S</meta:editing-duration><meta:generator>LibreOffice/5.0.6.2$Linux_X86_64 LibreOffice_project/00m0$Build-2</meta:generator><meta:document-statistic meta:table-count="29" meta:image-count="2" meta:object-count="3" meta:page-count="15" meta:paragraph-count="492" meta:word-count="2683" meta:character-count="21994" meta:non-whitespace-character-count="19582"/><meta:user-defined meta:name="Info 1"/><meta:user-defined meta:name="Info 2"/><meta:user-defined meta:name="Info 3"/><meta:user-defined meta:name="Info 4"/><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="ViewAreaTop" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">42335</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">21751</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">20772</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">25488</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">2489</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">27536</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">6302</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
      <config:config-item config:name="VisibleTop" config:type="long">0</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">42333</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">21749</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">20770</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -3668,9 +3668,6 @@
    <style:paragraph-properties fo:margin-left="2.521cm" fo:margin-right="0cm" fo:text-align="justify" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:color="#000000"/>
   </style:style>
-  <style:style style:name="P202" style:family="paragraph">
-   <style:paragraph-properties style:writing-mode="lr-tb"/>
-  </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties fo:font-weight="normal" style:font-weight-asian="normal"/>
   </style:style>
@@ -4139,12 +4136,6 @@
   <style:style style:name="T156" style:family="text">
    <style:text-properties fo:font-size="11.5pt" style:font-size-asian="11.5pt" style:font-size-complex="11.5pt" fo:background-color="#00ffff"/>
   </style:style>
-  <style:style style:name="T157" style:family="text">
-   <style:text-properties style:use-window-font-color="true" style:font-name="Times New Roman1" fo:font-size="12pt" fo:language="ru" fo:country="RU" style:font-name-asian="Times New Roman1" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Times New Roman1" style:font-size-complex="12pt" style:language-complex="ar" style:country-complex="SA"/>
-  </style:style>
-  <style:style style:name="T158" style:family="text">
-   <style:text-properties style:use-window-font-color="true" style:font-name="Times New Roman1" fo:font-size="12pt" fo:language="en" fo:country="US" style:font-name-asian="Times New Roman1" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Times New Roman1" style:font-size-complex="12pt" style:language-complex="ar" style:country-complex="SA"/>
-  </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties fo:margin-left="0.319cm" fo:margin-right="0.319cm" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" fo:padding="0.002cm" fo:border="none" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
@@ -4295,12 +4286,7 @@
       <text:p text:style-name="P25">Факультет </text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица1.A1" office:value-type="string">
-      <text:p text:style-name="P8"><text:span text:style-name="T51"><office:annotation office:name="__Annotation__5617_156954237">
-         <dc:creator>itas kuleshov123</dc:creator>
-         <dc:date>2016-06-20T19:48:00</dc:date>
-         <loext:sender-initials>ik</loext:sender-initials>
-         <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-        </office:annotation></text:span><text:span text:style-name="T26">Электротехнический факультет</text:span><text:span text:style-name="T20"> </text:span><office:annotation-end office:name="__Annotation__5617_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T26">Электротехнический факультет</text:span><text:span text:style-name="T20"> </text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица1.1">
@@ -4308,12 +4294,7 @@
       <text:p text:style-name="P25">Кафедра</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица1.A1" office:value-type="string">
-      <text:p text:style-name="P8"><office:annotation office:name="__Annotation__5618_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:05:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T26">информационных технологий и автоматизированных систем</text:span><office:annotation-end office:name="__Annotation__5618_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T26">информационных технологий и автоматизированных систем</text:span></text:p>
       <text:p text:style-name="P33"/>
      </table:table-cell>
     </table:table-row>
@@ -4325,12 +4306,7 @@
     <table:table-column table:style-name="Таблица2.B"/>
     <table:table-row table:style-name="Таблица2.1">
      <table:table-cell table:style-name="Таблица2.A1" table:number-columns-spanned="2" office:value-type="string">
-      <text:p text:style-name="P68"><office:annotation office:name="__Annotation__5621_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T11:57:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня ученых званий и степеней</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">д-р техн. наук, проф.</text:span><office:annotation-end office:name="__Annotation__5621_156954237"/></text:p>
+      <text:p text:style-name="P68"><text:span text:style-name="T51">д-р техн. наук, проф.</text:span></text:p>
      </table:table-cell>
      <table:covered-table-cell/>
     </table:table-row>
@@ -4339,12 +4315,7 @@
       <text:p text:style-name="P67">_________</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица2.A1" office:value-type="string">
-      <text:p text:style-name="P67"><office:annotation office:name="__Annotation__5622_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T11:57:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка сотрудников</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">Н. В. Лобов</text:span><office:annotation-end office:name="__Annotation__5622_156954237"/></text:p>
+      <text:p text:style-name="P67"><text:span text:style-name="T51">Н. В. Лобов</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4355,12 +4326,7 @@
     <table:table-column table:style-name="Таблица3.A"/>
     <table:table-row table:style-name="Таблица3.1">
      <table:table-cell table:style-name="Таблица3.A1" office:value-type="string">
-      <text:p text:style-name="P8"><office:annotation office:name="__Annotation__5626_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T11:59:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T35">«</text:span><text:span text:style-name="T37">Проектирование информационных систем</text:span><text:span text:style-name="T35">»</text:span><office:annotation-end office:name="__Annotation__5626_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T35">«</text:span><text:span text:style-name="T37">Проектирование информационных систем</text:span><text:span text:style-name="T35">»</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4376,12 +4342,7 @@
       <text:p text:style-name="Standard"><text:span text:style-name="T27">Программ</text:span><text:span text:style-name="T60">а</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица4.A1" office:value-type="string">
-      <text:p text:style-name="P8"><office:annotation office:name="__Annotation__5627_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:32:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T28">академической магистратуры</text:span><office:annotation-end office:name="__Annotation__5627_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T28">академической магистратуры</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4395,12 +4356,7 @@
       <text:p text:style-name="P39">Направление</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица5.A1" office:value-type="string">
-      <text:p text:style-name="P8"><office:annotation office:name="__Annotation__5628_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:01:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T61">09.04.04 <text:s/>«Программная инженерия»</text:span><office:annotation-end office:name="__Annotation__5628_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T61">09.04.04 <text:s/>«Программная инженерия»</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4413,13 +4369,8 @@
       <text:p text:style-name="P11">Профиль программы магистратуры:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица6.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5629_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:02:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T62">Разработка <text:s/></text:span></text:p>
-      <text:p text:style-name="P43"><text:span text:style-name="T62">программно-информационных систем</text:span><office:annotation-end office:name="__Annotation__5629_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T62">Разработка <text:s/></text:span></text:p>
+      <text:p text:style-name="P43"><text:span text:style-name="T62">программно-информационных систем</text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица6.2">
@@ -4427,12 +4378,7 @@
       <text:p text:style-name="P13">Квалификация выпускника:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица6.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5630_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:03:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T26">магистр</text:span><office:annotation-end office:name="__Annotation__5630_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T26">магистр</text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица6.3">
@@ -4440,12 +4386,7 @@
       <text:p text:style-name="P11">Выпускающая кафедра:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица6.B3" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5631_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:33:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T26">Информационные технологии и автоматизированные системы</text:span><office:annotation-end office:name="__Annotation__5631_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T26">Информационные технологии и автоматизированные системы</text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица6.4">
@@ -4453,12 +4394,7 @@
       <text:p text:style-name="P14">Форма обучения:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица6.A1" office:value-type="string">
-      <text:p text:style-name="P44"><office:annotation office:name="__Annotation__5632_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:33:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T26">очная</text:span><office:annotation-end office:name="__Annotation__5632_156954237"/></text:p>
+      <text:p text:style-name="P44"><text:span text:style-name="T26">очная</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4473,23 +4409,13 @@
       <text:p text:style-name="Standard"><text:span text:style-name="T13">Курс:</text:span><text:span text:style-name="T89"> </text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица7.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5633_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T95">2</text:span><office:annotation-end office:name="__Annotation__5633_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T95">2</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица7.A1" office:value-type="string">
       <text:p text:style-name="Standard"><text:span text:style-name="T13"><text:s text:c="17"/>Семестр(</text:span><text:span text:style-name="T50">-</text:span><text:span text:style-name="T13">ы)</text:span>:<text:span text:style-name="T89"> </text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица7.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5634_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T95">3</text:span><office:annotation-end office:name="__Annotation__5634_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T95">3</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4505,12 +4431,7 @@
       <text:p text:style-name="P69">Кредитов по рабочему учебному плану:<text:tab/></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица8.A1" office:value-type="string">
-      <text:p text:style-name="P71"><office:annotation office:name="__Annotation__5635_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T95">4</text:span><office:annotation-end office:name="__Annotation__5635_156954237"/></text:p>
+      <text:p text:style-name="P71"><text:span text:style-name="T95">4</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица8.A1" office:value-type="string">
       <text:p text:style-name="P72">ЗЕ</text:p>
@@ -4521,12 +4442,7 @@
       <text:p text:style-name="P73">Часов по рабочему учебному плану:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица8.A1" office:value-type="string">
-      <text:p text:style-name="P71"><office:annotation office:name="__Annotation__5636_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T20">144</text:span><office:annotation-end office:name="__Annotation__5636_156954237"/></text:p>
+      <text:p text:style-name="P71"><text:span text:style-name="T20">144</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица8.A1" office:value-type="string">
       <text:p text:style-name="P72">ч</text:p>
@@ -4550,20 +4466,10 @@
       <text:p text:style-name="P8">Экзамен:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица9.A1" office:value-type="string">
-      <text:p text:style-name="P8"><office:annotation office:name="__Annotation__5637_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T67">4</text:span><text:span text:style-name="T68"> </text:span><text:span text:style-name="T67">семестр</text:span><office:annotation-end office:name="__Annotation__5637_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T67">4</text:span><text:span text:style-name="T68"> </text:span><text:span text:style-name="T67">семестр</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица9.A1" office:value-type="string">
-      <text:p text:style-name="P8">Зачёт: <office:annotation office:name="__Annotation__5638_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T67">3 семестр</text:span><office:annotation-end office:name="__Annotation__5638_156954237"/></text:p>
+      <text:p text:style-name="P8">Зачёт: <text:span text:style-name="T67">3 семестр</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица9.A1" office:value-type="string">
       <text:p text:style-name="P48"/>
@@ -4578,73 +4484,23 @@
       <text:p text:style-name="P8">Курсовая<text:span text:style-name="T89"> </text:span>работа:</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица9.A1" office:value-type="string">
-      <text:p text:style-name="P8"><office:annotation office:name="__Annotation__5639_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-20T19:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-       </office:annotation><text:span text:style-name="T67">4 семестр</text:span><office:annotation-end office:name="__Annotation__5639_156954237"/></text:p>
+      <text:p text:style-name="P8"><text:span text:style-name="T67">4 семестр</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
    <text:p text:style-name="P4"/>
    <text:p text:style-name="P4"/>
-   <text:p text:style-name="P3"><text:soft-page-break/><text:span text:style-name="T3">Пермь, 20</text:span><office:annotation office:name="__Annotation__5640_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-20T19:36:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Привязка к машинному времени</text:span></text:p>
-    </office:annotation><text:span text:style-name="T3">16</text:span><office:annotation-end office:name="__Annotation__5640_156954237"/></text:p>
+   <text:p text:style-name="P3"><text:soft-page-break/><text:span text:style-name="T3">Пермь, 2016</text:span></text:p>
    <text:p text:style-name="P5">Настоящая программа учебной дисциплины устанавливает требования к знаниям, умениям и владениям студента и определяет содержание и виды учебных занятий и отчетности.</text:p>
    <text:p text:style-name="P76"/>
-   <text:p text:style-name="P76">Программа предназначена для преподавателей, ведущих данную дисциплину и студентов направления подготовки <office:annotation office:name="__Annotation__5641_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T12:14:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-    </office:annotation><text:span text:style-name="T65">09.04.04 <text:s/>«Программная инженерия</text:span>»<office:annotation-end office:name="__Annotation__5641_156954237"/>, изучающих дисциплину <office:annotation office:name="__Annotation__5642_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T12:14:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-    </office:annotation><text:span text:style-name="T57">«</text:span><text:span text:style-name="T51">Проектирование информационных систем</text:span><text:span text:style-name="T57">»</text:span>.<office:annotation-end office:name="__Annotation__5642_156954237"/></text:p>
+   <text:p text:style-name="P76">Программа предназначена для преподавателей, ведущих данную дисциплину и студентов направления подготовки <text:span text:style-name="T65">09.04.04 <text:s/>«Программная инженерия</text:span>», изучающих дисциплину <text:span text:style-name="T57">«</text:span><text:span text:style-name="T51">Проектирование информационных систем</text:span><text:span text:style-name="T57">»</text:span>.</text:p>
    <text:p text:style-name="P45">Программа разработана в соответствии с:</text:p>
    <text:list xml:id="list3843685739912975064" text:style-name="WW8Num22">
     <text:list-item>
-     <text:p text:style-name="P88">федеральным государственным образовательным стандартом высшего образования, утверждённым приказом <text:span text:style-name="T58">Министра образования и науки Российской Федерации № </text:span><office:annotation office:name="__Annotation__5643_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-20T19:37:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из ФГОС</text:span></text:p>
-      </office:annotation><text:span text:style-name="T69">1406</text:span><text:span text:style-name="T58"> </text:span><text:span text:style-name="T69">от30 октября 2014 г</text:span><text:span text:style-name="T58"> <text:s/></text:span><office:annotation-end office:name="__Annotation__5643_156954237"/><text:span text:style-name="T58">по направлению подготовки <text:s/></text:span><text:span text:style-name="T64"><text:s/></text:span><office:annotation office:name="__Annotation__5644_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T12:15:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-      </office:annotation><text:span text:style-name="T65">09.04.04 <text:s/>«Программная инженерия</text:span><text:span text:style-name="T69">»</text:span><office:annotation-end office:name="__Annotation__5644_156954237"/>;</text:p>
+     <text:p text:style-name="P88">федеральным государственным образовательным стандартом высшего образования, утверждённым приказом <text:span text:style-name="T58">Министра образования и науки Российской Федерации № </text:span><text:span text:style-name="T69">1406</text:span><text:span text:style-name="T58"> </text:span><text:span text:style-name="T69">от30 октября 2014 г</text:span><text:span text:style-name="T58"> <text:s/></text:span><text:span text:style-name="T58">по направлению подготовки <text:s/></text:span><text:span text:style-name="T64"><text:s/></text:span><text:span text:style-name="T65">09.04.04 <text:s/>«Программная инженерия</text:span><text:span text:style-name="T69">»</text:span>;</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P89">Рабочим учебным планом университета по направлению подготовки <office:annotation office:name="__Annotation__5645_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T12:16:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-      </office:annotation><text:span text:style-name="T65">09.04.04 <text:s/>«Программная инженерия</text:span><office:annotation-end office:name="__Annotation__5645_156954237"/><text:span text:style-name="T64">»</text:span>, <text:span text:style-name="T58">программе </text:span><office:annotation office:name="__Annotation__5646_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-20T19:37:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-      </office:annotation><text:span text:style-name="T69">магистратуры</text:span><office:annotation-end office:name="__Annotation__5646_156954237"/><text:span text:style-name="T58"> «</text:span><office:annotation office:name="__Annotation__5647_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T12:18:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-      </office:annotation><text:span text:style-name="T69">Разработка программно-информационных систем</text:span><office:annotation-end office:name="__Annotation__5647_156954237"/><text:span text:style-name="T58">» утверждённым <text:s/></text:span><office:annotation office:name="__Annotation__5648_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-20T19:37:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-      </office:annotation><text:span text:style-name="T69">28 мая 2015 г.</text:span><office:annotation-end office:name="__Annotation__5648_156954237"/></text:p>
+     <text:p text:style-name="P89">Рабочим учебным планом университета по направлению подготовки <text:span text:style-name="T65">09.04.04 <text:s/>«Программная инженерия</text:span><text:span text:style-name="T64">»</text:span>, <text:span text:style-name="T58">программе </text:span><text:span text:style-name="T69">магистратуры</text:span><text:span text:style-name="T58"> «</text:span><text:span text:style-name="T69">Разработка программно-информационных систем</text:span><text:span text:style-name="T58">» утверждённым <text:s/></text:span><text:span text:style-name="T69">28 мая 2015 г.</text:span></text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="P201"/>
@@ -4657,23 +4513,13 @@
     <table:table-column table:style-name="Таблица10.C"/>
     <table:table-row table:style-name="Таблица10.1">
      <table:table-cell table:style-name="Таблица10.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5649_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:19:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня ученых званий и степеней</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">д-р. экон. наук, проф.</text:span><office:annotation-end office:name="__Annotation__5649_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T51">д-р. экон. наук, проф.</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица10.A1" office:value-type="string">
       <text:p text:style-name="Standard">_________________</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица10.A1" office:value-type="string">
-      <text:p text:style-name="P43"><office:annotation office:name="__Annotation__5650_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:20:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка сотрудников</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">Р. А. Файзрахманов </text:span><office:annotation-end office:name="__Annotation__5650_156954237"/></text:p>
+      <text:p text:style-name="P43"><text:span text:style-name="T51">Р. А. Файзрахманов </text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4687,28 +4533,13 @@
     <table:table-column table:style-name="Таблица11.C"/>
     <table:table-row table:style-name="Таблица11.1">
      <table:table-cell table:style-name="Таблица11.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5651_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:21:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка кафедр</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">Информационные технологии и автоматизированные системы</text:span><office:annotation-end office:name="__Annotation__5651_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T51">Информационные технологии и автоматизированные системы</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица11.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5652_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:22:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Заполняется после распечатки программы</text:span></text:p>
-       </office:annotation><text:span text:style-name="T99">« <text:s text:c="4"/>» _______________ <text:s/>20 ___ г.</text:span><office:annotation-end office:name="__Annotation__5652_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T99">« <text:s text:c="4"/>» _______________ <text:s/>20 ___ г.</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица11.A1" office:value-type="string">
-      <text:p text:style-name="Standard">протокол <office:annotation office:name="__Annotation__5653_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:22:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Заполняется после распечатки программы</text:span></text:p>
-       </office:annotation><text:span text:style-name="T99">№ ____ .</text:span><office:annotation-end office:name="__Annotation__5653_156954237"/></text:p>
+      <text:p text:style-name="Standard">протокол <text:span text:style-name="T99">№ ____ .</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4722,13 +4553,8 @@
       <text:p text:style-name="Standard">Заведующий ведущей <text:s/>кафедры</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица12.A1" office:value-type="string">
-      <text:p text:style-name="P93"><office:annotation office:name="__Annotation__5654_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:22:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка кафедр</text:span></text:p>
-       </office:annotation>информационных технологий и автоматизированных </text:p>
-      <text:p text:style-name="Standard"><text:span text:style-name="T49">систем</text:span><office:annotation-end office:name="__Annotation__5654_156954237"/></text:p>
+      <text:p text:style-name="P93">информационных технологий и автоматизированных </text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T49">систем</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4739,23 +4565,13 @@
     <table:table-column table:style-name="Таблица13.C"/>
     <table:table-row table:style-name="Таблица13.1">
      <table:table-cell table:style-name="Таблица13.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5655_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:23:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня ученых званий и степеней</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">д-р. экон. наук, проф.</text:span><office:annotation-end office:name="__Annotation__5655_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T51">д-р. экон. наук, проф.</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица13.A1" office:value-type="string">
       <text:p text:style-name="Standard">_________________</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица13.A1" office:value-type="string">
-      <text:p text:style-name="P43"><office:annotation office:name="__Annotation__5656_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:23:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка сотрудников</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">Р. А. Файзрахманов </text:span><office:annotation-end office:name="__Annotation__5656_156954237"/></text:p>
+      <text:p text:style-name="P43"><text:span text:style-name="T51">Р. А. Файзрахманов </text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица13.1">
@@ -4780,13 +4596,8 @@
       <text:p text:style-name="Standard">Заведующий выпускающей кафедры</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица14.A1" office:value-type="string">
-      <text:p text:style-name="P93"><office:annotation office:name="__Annotation__5657_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:23:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка кафедр</text:span></text:p>
-       </office:annotation>информационных технологий и автоматизированных </text:p>
-      <text:p text:style-name="Standard"><text:span text:style-name="T49">систем</text:span><office:annotation-end office:name="__Annotation__5657_156954237"/></text:p>
+      <text:p text:style-name="P93">информационных технологий и автоматизированных </text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T49">систем</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4797,23 +4608,13 @@
     <table:table-column table:style-name="Таблица15.C"/>
     <table:table-row table:style-name="Таблица15.1">
      <table:table-cell table:style-name="Таблица15.A1" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5658_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:24:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня ученых званий и степеней</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">д-р. экон. наук, проф.</text:span><office:annotation-end office:name="__Annotation__5658_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T51">д-р. экон. наук, проф.</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица15.A1" office:value-type="string">
       <text:p text:style-name="Standard">_________________</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица15.A1" office:value-type="string">
-      <text:p text:style-name="P43"><office:annotation office:name="__Annotation__5659_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:24:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка сотрудников</text:span></text:p>
-       </office:annotation><text:span text:style-name="T51">Р. А. Файзрахманов </text:span><office:annotation-end office:name="__Annotation__5659_156954237"/></text:p>
+      <text:p text:style-name="P43"><text:span text:style-name="T51">Р. А. Файзрахманов </text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица15.1">
@@ -4858,23 +4659,13 @@
        <table:table-column table:style-name="Таблица18.C"/>
        <table:table-row table:style-name="Таблица18.1">
         <table:table-cell table:style-name="Таблица18.A1" office:value-type="string">
-         <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5660_156954237">
-           <dc:creator>itas kuleshov123</dc:creator>
-           <dc:date>2016-06-07T12:24:00</dc:date>
-           <loext:sender-initials>ik</loext:sender-initials>
-           <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня ученых званий и степеней</text:span></text:p>
-          </office:annotation><text:span text:style-name="T51">канд. техн. наук, доц.</text:span><office:annotation-end office:name="__Annotation__5660_156954237"/></text:p>
+         <text:p text:style-name="Standard"><text:span text:style-name="T51">канд. техн. наук, доц.</text:span></text:p>
         </table:table-cell>
         <table:table-cell table:style-name="Таблица18.A1" office:value-type="string">
          <text:p text:style-name="Standard">____________________</text:p>
         </table:table-cell>
         <table:table-cell table:style-name="Таблица18.A1" office:value-type="string">
-         <text:p text:style-name="P94"><text:bookmark-start text:name="__DdeLink__8872_869728654"/><office:annotation office:name="__Annotation__5661_156954237">
-           <dc:creator>itas kuleshov123</dc:creator>
-           <dc:date>2016-06-07T12:25:00</dc:date>
-           <loext:sender-initials>ik</loext:sender-initials>
-           <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка сотрудников</text:span></text:p>
-          </office:annotation><text:span text:style-name="T51">Д. С. Репецкий</text:span><office:annotation-end office:name="__Annotation__5661_156954237"/><text:bookmark-end text:name="__DdeLink__8872_869728654"/></text:p>
+         <text:p text:style-name="P94"><text:bookmark-start text:name="__DdeLink__8872_869728654"/><text:span text:style-name="T51">Д. С. Репецкий</text:span><text:bookmark-end text:name="__DdeLink__8872_869728654"/></text:p>
         </table:table-cell>
        </table:table-row>
       </table:table>
@@ -4884,12 +4675,7 @@
    </table:table>
    <text:p text:style-name="P171">Общие положения</text:p>
    <text:p text:style-name="P123">1.1 Цель учебной дисциплины</text:p>
-   <text:p text:style-name="P126"><text:span text:style-name="T100">Целью изучения дисциплины является </text:span><text:span text:style-name="T100"><office:annotation office:name="__Annotation__5663_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-07T12:25:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T101">приобретение знаний, умений и навыков, необходимых для проектирования информационной системы и ее компонентов.</text:span><office:annotation-end office:name="__Annotation__5663_156954237"/></text:p>
+   <text:p text:style-name="P126"><text:span text:style-name="T100">Целью изучения дисциплины является </text:span><text:span text:style-name="T101">приобретение знаний, умений и навыков, необходимых для проектирования информационной системы и ее компонентов.</text:span></text:p>
    <text:p text:style-name="P124">1.2 Задачи <text:s/>учебной дисциплины</text:p>
    <text:p text:style-name="P125"><text:span text:style-name="T1">В результате освоения <text:s/>дисциплины обучающийся должен:</text:span></text:p>
    <text:p text:style-name="P126">знать:</text:p>
@@ -4897,13 +4683,8 @@
     <table:table-column table:style-name="Таблица19.A"/>
     <table:table-row table:style-name="Таблица19.1">
      <table:table-cell table:style-name="Таблица19.A1" office:value-type="string">
-      <text:p text:style-name="P96"><office:annotation office:name="__Annotation__5664_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:25:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="T59">–</text:span><text:span text:style-name="T63"> методику обследования объекта, разработки проекта и внедрения информационной системы (ПК-11);</text:span></text:p>
-      <text:p text:style-name="P96"><text:span text:style-name="T59">–</text:span><text:span text:style-name="T63"> инструментальные средства для моделирования процессов и компонентов информационной системы (ПК-7);</text:span><office:annotation-end office:name="__Annotation__5664_156954237"/></text:p>
+      <text:p text:style-name="P96"><text:span text:style-name="T59">–</text:span><text:span text:style-name="T63"> методику обследования объекта, разработки проекта и внедрения информационной системы (ПК-11);</text:span></text:p>
+      <text:p text:style-name="P96"><text:span text:style-name="T59">–</text:span><text:span text:style-name="T63"> инструментальные средства для моделирования процессов и компонентов информационной системы (ПК-7);</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4912,13 +4693,8 @@
     <table:table-column table:style-name="Таблица20.A"/>
     <table:table-row table:style-name="Таблица20.1">
      <table:table-cell table:style-name="Таблица20.A1" office:value-type="string">
-      <text:p text:style-name="P96"><office:annotation office:name="__Annotation__5665_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:26:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="T63">– самостоятельно работать со справочной литературой, стандартами, оформить требования заказчика, проект информационной системы в виде технического задания и проектной документации (ОК-9);</text:span></text:p>
-      <text:p text:style-name="P96"><text:span text:style-name="T110">–</text:span><text:span text:style-name="T63"> применять инструментальные средства для оформления моделей и проектной документации (ПК-8);</text:span><office:annotation-end office:name="__Annotation__5665_156954237"/></text:p>
+      <text:p text:style-name="P96"><text:span text:style-name="T63">– самостоятельно работать со справочной литературой, стандартами, оформить требования заказчика, проект информационной системы в виде технического задания и проектной документации (ОК-9);</text:span></text:p>
+      <text:p text:style-name="P96"><text:span text:style-name="T110">–</text:span><text:span text:style-name="T63"> применять инструментальные средства для оформления моделей и проектной документации (ПК-8);</text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -4927,13 +4703,8 @@
     <table:table-column table:style-name="Таблица21.A"/>
     <table:table-row table:style-name="Таблица21.1">
      <table:table-cell table:style-name="Таблица21.A1" office:value-type="string">
-      <text:p text:style-name="P96"><office:annotation office:name="__Annotation__5666_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:26:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="T63">– навыками проектирования информационных систем и их компонентов (ПК-7);</text:span></text:p>
-      <text:p text:style-name="P96"><text:span text:style-name="T110">–</text:span><text:span text:style-name="T63"> навыками применения инструментальных средств для создания информационных и процессных моделей и проектной документации (ПК-11).</text:span><office:annotation-end office:name="__Annotation__5666_156954237"/></text:p>
+      <text:p text:style-name="P96"><text:span text:style-name="T63">– навыками проектирования информационных систем и их компонентов (ПК-7);</text:span></text:p>
+      <text:p text:style-name="P96"><text:span text:style-name="T110">–</text:span><text:span text:style-name="T63"> навыками применения инструментальных средств для создания информационных и процессных моделей и проектной документации (ПК-11).</text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица21.1">
@@ -4944,32 +4715,12 @@
    </table:table>
    <text:p text:style-name="P123"><text:span text:style-name="Стиль_20_Стиль1_20__2b__20_Авто_20_Знак"><text:span text:style-name="T103">2 Место учебной дисциплины в структуре ООП.</text:span></text:span></text:p>
    <text:p text:style-name="P41"/>
-   <text:p text:style-name="P75"><text:span text:style-name="T30">Дисциплина «Проектирование информационных систем» является дисциплиной </text:span><office:annotation office:name="__Annotation__5667_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-20T19:39:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-    </office:annotation><text:span text:style-name="T30">вариативной (обязательной)</text:span><office:annotation-end office:name="__Annotation__5667_156954237"/><text:span text:style-name="T30"> части учебного плана.</text:span></text:p>
+   <text:p text:style-name="P75"><text:span text:style-name="T30">Дисциплина «Проектирование информационных систем» является дисциплиной вариативной (обязательной)</text:span><text:span text:style-name="T30"> части учебного плана.</text:span></text:p>
    <text:p text:style-name="P126">Для успешного освоения дисциплины студент должен изучить дисциплины учебного плана:</text:p>
-   <text:p text:style-name="P128">бакалавриата: <office:annotation office:name="__Annotation__5668_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T12:28:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-    </office:annotation><text:span text:style-name="T51">«Программирование в системах искусственного интеллекта».</text:span><office:annotation-end office:name="__Annotation__5668_156954237"/></text:p>
-   <text:p text:style-name="P129">магистратуры: <office:annotation office:name="__Annotation__5669_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T12:29:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-    </office:annotation><text:span text:style-name="T51">«Распределенные системы обработки информации», «Теория параллельных вычислений».</text:span><office:annotation-end office:name="__Annotation__5669_156954237"/></text:p>
+   <text:p text:style-name="P128">бакалавриата: <text:span text:style-name="T51">«Программирование в системах искусственного интеллекта».</text:span></text:p>
+   <text:p text:style-name="P129">магистратуры: <text:span text:style-name="T51">«Распределенные системы обработки информации», «Теория параллельных вычислений».</text:span></text:p>
    <text:p text:style-name="P129">Результаты освоения дисциплины используются при преподавании</text:p>
-   <text:p text:style-name="P130">дисциплин: <office:annotation office:name="__Annotation__5670_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T12:29:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-    </office:annotation><text:span text:style-name="T51">Научно-исследовательская работа, Преддипломная практика.</text:span><office:annotation-end office:name="__Annotation__5670_156954237"/></text:p>
+   <text:p text:style-name="P130">дисциплин: <text:span text:style-name="T51">Научно-исследовательская работа, Преддипломная практика.</text:span></text:p>
    <text:p text:style-name="P173">3 Содержание <text:span text:style-name="T56">учебной </text:span>дисциплины</text:p>
    <text:p text:style-name="Standard"/>
    <table:table table:name="Таблица22" table:style-name="Таблица22">
@@ -5032,12 +4783,7 @@
     </table:table-row>
     <table:table-row table:style-name="Таблица22.4">
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="8" office:value-type="string">
-      <text:p text:style-name="P196"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T13">Тема 1. </text:span></text:span><office:annotation office:name="__Annotation__5671_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:32:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T13">Основные понятия и стандарты в области проектирования информационных систем (ИС)</text:span></text:span><office:annotation-end office:name="__Annotation__5671_156954237"/></text:p>
+      <text:p text:style-name="P196"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T13">Тема 1. Основные понятия и стандарты в области проектирования информационных систем (ИС)</text:span></text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.B4" office:value-type="string">
       <text:p text:style-name="P182"><text:span text:style-name="T114">Лекции</text:span></text:p>
@@ -5052,26 +4798,11 @@
     <table:table-row table:style-name="Таблица22.5">
      <table:covered-table-cell/>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
-      <text:p text:style-name="P196"><text:span text:style-name="T115">Лекция 1. </text:span><office:annotation office:name="__Annotation__5672_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:32:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Основные понятия технологии проектирования информационных систем (ИС).</text:span></text:span><office:annotation-end office:name="__Annotation__5672_156954237"/></text:p>
-      <text:p text:style-name="P196"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Содержание: </text:span></text:span><office:annotation office:name="__Annotation__5673_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:32:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="Font_20_Style53">Понятие информационной системы. Классы ИС. Структура однопользовательской и многопользовательской, малой и корпоративной ИС, локальной и распределенной ИС, состав и назначение подсистем. Основные особенности современных проектов ИС.</text:span><office:annotation-end office:name="__Annotation__5673_156954237"/></text:p>
+      <text:p text:style-name="P196"><text:span text:style-name="T115">Лекция 1. </text:span><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Основные понятия технологии проектирования информационных систем (ИС).</text:span></text:span></text:p>
+      <text:p text:style-name="P196"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Содержание: </text:span></text:span><text:span text:style-name="Font_20_Style53">Понятие информационной системы. Классы ИС. Структура однопользовательской и многопользовательской, малой и корпоративной ИС, локальной и распределенной ИС, состав и назначение подсистем. Основные особенности современных проектов ИС.</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
-      <text:p text:style-name="P180"><office:annotation office:name="__Annotation__5674_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:33:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="Font_20_Style54"><text:span text:style-name="T1">1</text:span></text:span><office:annotation-end office:name="__Annotation__5674_156954237"/></text:p>
+      <text:p text:style-name="P180"><text:span text:style-name="Font_20_Style54"><text:span text:style-name="T1">1</text:span></text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
       <text:p text:style-name="P180"><text:span text:style-name="Font_20_Style54">-</text:span></text:p>
@@ -5094,26 +4825,11 @@
     <table:table-row table:style-name="Таблица22.7">
      <table:covered-table-cell/>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
-      <text:p text:style-name="P196"><text:span text:style-name="T115">Лекция 2. </text:span><office:annotation office:name="__Annotation__5675_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:33:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Стандарты в области разработки ИС. Жизненный цикл программного обеспечения (ПО) ИС.</text:span></text:span><office:annotation-end office:name="__Annotation__5675_156954237"/></text:p>
-      <text:p text:style-name="P196"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Содержание: </text:span></text:span><office:annotation office:name="__Annotation__5676_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:33:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="T118">Регламентация процессов проектирования в отечественных и международных стандартах.</text:span><text:span text:style-name="Font_20_Style53"> Понятие жизненного цикла ПО ИС. Процессы жизненного цикла: основные, вспомогательные, организационные. Содержание и взаимосвязь процессов жизненного цикла ПО ИС. Модели жизненного цикла: каскадная, модель с промежуточным контролем, спиральная. Стадии жизненного цикла ПО ИС. </text:span><office:annotation-end office:name="__Annotation__5676_156954237"/></text:p>
+      <text:p text:style-name="P196"><text:span text:style-name="T115">Лекция 2. </text:span><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Стандарты в области разработки ИС. Жизненный цикл программного обеспечения (ПО) ИС.</text:span></text:span></text:p>
+      <text:p text:style-name="P196"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T19">Содержание: </text:span></text:span><text:span text:style-name="T118">Регламентация процессов проектирования в отечественных и международных стандартах.</text:span><text:span text:style-name="Font_20_Style53"> Понятие жизненного цикла ПО ИС. Процессы жизненного цикла: основные, вспомогательные, организационные. Содержание и взаимосвязь процессов жизненного цикла ПО ИС. Модели жизненного цикла: каскадная, модель с промежуточным контролем, спиральная. Стадии жизненного цикла ПО ИС. </text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
-      <text:p text:style-name="P145"><office:annotation office:name="__Annotation__5677_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="T117">2</text:span><office:annotation-end office:name="__Annotation__5677_156954237"/></text:p>
+      <text:p text:style-name="P145"><text:span text:style-name="T117">2</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
       <text:p text:style-name="P147">-</text:p>
@@ -5148,12 +4864,7 @@
     <table:table-row table:style-name="Таблица22.10">
      <table:covered-table-cell/>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
-      <text:p text:style-name="P196"><text:span text:style-name="T116">Изучение теоретического материала (содержание):</text:span><text:span text:style-name="T114"> </text:span><office:annotation office:name="__Annotation__5678_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:33:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="Font_20_Style53">Стадии и этапы процесса канонического проектирования ИС. Цели и задачи предпроектной стадии создания ИС. Модели деятельности организации («как есть» и «как должно быть»). Состав работ на стадии технического и рабочего проектирования. Состав проектной документации. Типовое проектирование ИС. </text:span><text:span text:style-name="T118">Типовое проектное решение (ТПР). Функциональные пакеты прикладных программ (ППП) как основа ТПР. </text:span><office:annotation-end office:name="__Annotation__5678_156954237"/></text:p>
+      <text:p text:style-name="P196"><text:span text:style-name="T116">Изучение теоретического материала (содержание):</text:span><text:span text:style-name="T114"> </text:span><text:span text:style-name="Font_20_Style53">Стадии и этапы процесса канонического проектирования ИС. Цели и задачи предпроектной стадии создания ИС. Модели деятельности организации («как есть» и «как должно быть»). Состав работ на стадии технического и рабочего проектирования. Состав проектной документации. Типовое проектирование ИС. </text:span><text:span text:style-name="T118">Типовое проектное решение (ТПР). Функциональные пакеты прикладных программ (ППП) как основа ТПР. </text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
       <text:p text:style-name="P145"><text:span text:style-name="T117">-</text:span></text:p>
@@ -5162,12 +4873,7 @@
       <text:p text:style-name="P147">-</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.A1" table:number-rows-spanned="2" office:value-type="string">
-      <text:p text:style-name="P145"><office:annotation office:name="__Annotation__5679_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T12:34:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Ручной ввод</text:span></text:p>
-       </office:annotation><text:span text:style-name="T117">8</text:span><office:annotation-end office:name="__Annotation__5679_156954237"/></text:p>
+      <text:p text:style-name="P145"><text:span text:style-name="T117">8</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.C1" table:number-rows-spanned="2" office:value-type="string">
       <text:p text:style-name="P147">-</text:p>
@@ -5885,12 +5591,7 @@
       <text:p text:style-name="P134"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T12">76</text:span></text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица22.F61" office:value-type="string">
-      <text:p text:style-name="P134"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T12">6</text:span></text:span><text:span text:style-name="Comment_20_Reference"><text:span text:style-name="T143"><office:annotation>
-          <dc:creator>itas kuleshov123</dc:creator>
-          <dc:date>2016-06-07T12:41:00</dc:date>
-          <loext:sender-initials>ik</loext:sender-initials>
-          <text:p text:style-name="P202"><text:span text:style-name="T157">Вставка из учебного плана</text:span></text:p>
-         </office:annotation></text:span></text:span></text:p>
+      <text:p text:style-name="P134"><text:span text:style-name="Font_20_Style53"><text:span text:style-name="T12">6</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -5914,12 +5615,7 @@
       <text:p text:style-name="P167">ОК-9</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица23.B1" office:value-type="string">
-      <text:p text:style-name="P166"><text:span text:style-name="T81">умение оформлять отчеты о проведенной <text:s/>научно-исследовательской работе и подготавливать публикации по результатам исследования</text:span><text:span text:style-name="Comment_20_Reference"><text:span text:style-name="T16"><office:annotation>
-          <dc:creator>itas kuleshov123</dc:creator>
-          <dc:date>2016-06-20T19:42:00</dc:date>
-          <loext:sender-initials>ik</loext:sender-initials>
-          <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор компетенций из ФГОС</text:span></text:p>
-         </office:annotation></text:span></text:span></text:p>
+      <text:p text:style-name="P166"><text:span text:style-name="T81">умение оформлять отчеты о проведенной <text:s/>научно-исследовательской работе и подготавливать публикации по результатам исследования</text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица23.1">
@@ -5951,84 +5647,35 @@
    <text:p text:style-name="P79"/>
    <text:p text:style-name="P77"><text:span text:style-name="T38">4.2 Этапы формирования дисциплинарных частей компетенций, объекты оценивания и виды контроля</text:span></text:p>
    <text:p text:style-name="P80"/>
-   <text:p text:style-name="P77"><text:span text:style-name="T42">Учебный материал дисциплины разбит на учебные модули. В каждом модуле предусмотрены аудиторные лекционные и </text:span><text:span text:style-name="T25"><office:annotation office:name="__Annotation__5682_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-20T19:40:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из учебного плана</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T37">лабораторные занятия</text:span><office:annotation-end office:name="__Annotation__5682_156954237"/><text:span text:style-name="T42">, а также самостоятельная работа студентов. В рамках освоения учебного материала дисциплины формируется компоненты дисциплинарных компетенций </text:span><text:span text:style-name="T24">знать, уметь, владеть</text:span><text:span text:style-name="T42">, указанные в РПД, и которые выступают в качестве контролируемых результатов обучения.</text:span></text:p>
-   <text:p text:style-name="P47"><text:span text:style-name="T42"><text:tab/>Контроль уровня усвоенных знаний, освоенных умений и приобретенных владений осуществляется в рамках </text:span><office:annotation office:name="__Annotation__5683_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T13:17:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из видов контроля</text:span></text:p>
-    </office:annotation><text:span text:style-name="T42">текущего, рубежного и промежуточного </text:span><office:annotation-end office:name="__Annotation__5683_156954237"/><text:span text:style-name="T42">контроля при изучении теоретического материала, сдаче отчетов по лабораторным работам, защита курсового проекта и экзамена. Виды контроля сведены в таблицу 5.1. </text:span></text:p>
+   <text:p text:style-name="P77"><text:span text:style-name="T42">Учебный материал дисциплины разбит на учебные модули. В каждом модуле предусмотрены аудиторные лекционные и </text:span><text:span text:style-name="T37">лабораторные занятия</text:span><text:span text:style-name="T42">, а также самостоятельная работа студентов. В рамках освоения учебного материала дисциплины формируется компоненты дисциплинарных компетенций </text:span><text:span text:style-name="T24">знать, уметь, владеть</text:span><text:span text:style-name="T42">, указанные в РПД, и которые выступают в качестве контролируемых результатов обучения.</text:span></text:p>
+   <text:p text:style-name="P47"><text:span text:style-name="T42"><text:tab/>Контроль уровня усвоенных знаний, освоенных умений и приобретенных владений осуществляется в рамках текущего, рубежного и промежуточного </text:span><text:span text:style-name="T42">контроля при изучении теоретического материала, сдаче отчетов по лабораторным работам, защита курсового проекта и экзамена. Виды контроля сведены в таблицу 5.1. </text:span></text:p>
    <text:p text:style-name="P83"/>
    <text:p text:style-name="P78"><text:span text:style-name="T38">4.3 Описание показателей и критериев оценивания компетенций, шкалы оценивания</text:span></text:p>
    <text:p text:style-name="P81"/>
    <text:p text:style-name="P78"><text:span text:style-name="T38">4.3.1 Текущий контроль</text:span></text:p>
-   <text:p text:style-name="P78"><text:span text:style-name="T42">Текущий контроль для оценивания знаниевого компонента дисциплинарных <text:s/>частей компетенций в форме </text:span><office:annotation office:name="__Annotation__5684_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T13:34:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня оценочных средств</text:span></text:p>
-     <text:p text:style-name="P202"><text:span text:style-name="T157"/></text:p>
-    </office:annotation><text:span text:style-name="T42">экспресс-теста и защиты лабораторных работ </text:span><office:annotation-end office:name="__Annotation__5684_156954237"/><text:span text:style-name="T42">по каждой теме.</text:span></text:p>
+   <text:p text:style-name="P78"><text:span text:style-name="T42">Текущий контроль для оценивания знаниевого компонента дисциплинарных <text:s/>частей компетенций в форме экспресс-теста и защиты лабораторных работ </text:span><text:span text:style-name="T42">по каждой теме.</text:span></text:p>
    <text:p text:style-name="P98"><text:span text:style-name="T38">4.3.2 Рубежный контроль</text:span></text:p>
-   <text:p text:style-name="P78"><text:span text:style-name="T42">Рубежный контроль для комплексного оценивания усвоенных знаний, освоенных умений и приобретенных владений дисциплинарных частей компетенций проводится в форме </text:span><office:annotation office:name="__Annotation__5685_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T13:37:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня оценочных средств</text:span></text:p>
-    </office:annotation><text:span text:style-name="T42">зачета</text:span><office:annotation-end office:name="__Annotation__5685_156954237"/><text:span text:style-name="T42"> после изучения модуля 1 учебной дисциплины.</text:span></text:p>
+   <text:p text:style-name="P78"><text:span text:style-name="T42">Рубежный контроль для комплексного оценивания усвоенных знаний, освоенных умений и приобретенных владений дисциплинарных частей компетенций проводится в форме зачета</text:span><text:span text:style-name="T42"> после изучения модуля 1 учебной дисциплины.</text:span></text:p>
    <text:p text:style-name="P92"><text:span text:style-name="T60">В результате проведения зачета на основании критериев и показателей оценивания, разработанных преподавателем</text:span><text:span text:style-name="Font_20_Style17"><text:span text:style-name="T59">, </text:span></text:span><text:span text:style-name="T60">студенту выставляется оценка </text:span><text:soft-page-break/><text:span text:style-name="T60">«зачтено» или «незачтено», которая заносится в зачетную ведомость и зачетную книжку студента (только если «зачтено»).</text:span></text:p>
    <text:p text:style-name="P40"/>
    <text:p text:style-name="P24">Типовые критерии выведения итоговой оценки за компоненты компетенций при проведении зачета</text:p>
    <text:list xml:id="list3533944572945838061" text:style-name="WW8Num12">
     <text:list-item>
-     <text:p text:style-name="P174"><text:span text:style-name="T9">интегральная оценка за знание <text:s/>по 4-х балльной шкале выставляется студенту по результатам <text:s/>текущего контроля в форме </text:span><office:annotation office:name="__Annotation__5686_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T13:53:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня оценочных средств</text:span></text:p>
-       <text:p text:style-name="P202"><text:span text:style-name="T157"/></text:p>
-      </office:annotation><text:span text:style-name="T153">экспресс-тестов </text:span><office:annotation-end office:name="__Annotation__5686_156954237"/><text:span text:style-name="T9">;</text:span></text:p>
+     <text:p text:style-name="P174"><text:span text:style-name="T9">интегральная оценка за знание <text:s/>по 4-х балльной шкале выставляется студенту по результатам <text:s/>текущего контроля в форме </text:span><text:span text:style-name="T153">экспресс-тестов </text:span><text:span text:style-name="T9">;</text:span></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P174"><text:span text:style-name="T9">интегральная оценка за умение <text:s/>по 4-х балльной шкале выставляется студенту по результатам текущего контроля в форме </text:span><office:annotation office:name="__Annotation__5687_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T13:53:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня оценочных средств</text:span></text:p>
-       <text:p text:style-name="P202"><text:span text:style-name="T157"/></text:p>
-      </office:annotation><text:span text:style-name="T153">экспресс-теста и защиты лабораторных работ </text:span><office:annotation-end office:name="__Annotation__5687_156954237"/><text:span text:style-name="T9">;</text:span></text:p>
+     <text:p text:style-name="P174"><text:span text:style-name="T9">интегральная оценка за умение <text:s/>по 4-х балльной шкале выставляется студенту по результатам текущего контроля в форме </text:span><text:span text:style-name="T153">экспресс-теста и защиты лабораторных работ </text:span><text:span text:style-name="T9">;</text:span></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P174"><text:span text:style-name="T9">интегральная оценка за владение <text:s/>по 4-х балльной шкале выставляется студенту по результатам текущего контроля в форме </text:span><office:annotation office:name="__Annotation__5688_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T13:54:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня оценочных средств</text:span></text:p>
-       <text:p text:style-name="P202"><text:span text:style-name="T157"/></text:p>
-      </office:annotation><text:span text:style-name="T153">защиты лабораторных работ </text:span><office:annotation-end office:name="__Annotation__5688_156954237"/><text:span text:style-name="T9">.</text:span></text:p>
+     <text:p text:style-name="P174"><text:span text:style-name="T9">интегральная оценка за владение <text:s/>по 4-х балльной шкале выставляется студенту по результатам текущего контроля в форме </text:span><text:span text:style-name="T153">защиты лабораторных работ </text:span><text:span text:style-name="T9">.</text:span></text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="P84"/>
    <text:p text:style-name="P78"><text:span text:style-name="T38">4.3.3 Промежуточная аттестация</text:span></text:p>
-   <text:p text:style-name="P78"><text:span text:style-name="T42">Промежуточный контроль для комплексного оценивания усвоенных знаний, освоенных умений и приобретенных владений дисциплинарных частей компетенций проводится в форме </text:span><office:annotation office:name="__Annotation__5689_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T13:47:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из перечня оценочных средств</text:span></text:p>
-    </office:annotation><text:span text:style-name="T43">экзамен</text:span><office:annotation-end office:name="__Annotation__5689_156954237"/></text:p>
+   <text:p text:style-name="P78"><text:span text:style-name="T42">Промежуточный контроль для комплексного оценивания усвоенных знаний, освоенных умений и приобретенных владений дисциплинарных частей компетенций проводится в форме </text:span><text:span text:style-name="T43">экзамен</text:span></text:p>
    <text:p text:style-name="P7"><text:span text:style-name="T80">В результате проведения экзамена на основании критериев и показателей оценивания, приведенных ниже,</text:span><text:span text:style-name="Font_20_Style17"><text:span text:style-name="T59"> </text:span></text:span><text:span text:style-name="T80">студенту выставляется оценка «отлично», «хорошо», «удовлетворительно» или «неудовлетворительно», которая заносится в зачетную ведомость и зачетную книжку студента (только если положительная). </text:span></text:p>
    <text:p text:style-name="P99"/>
-   <text:p text:style-name="P106"><text:span text:style-name="T34"><office:annotation office:name="__Annotation__5690_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-07T13:56:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Вставка из базы шкал оценочных средств</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T39">Шкала оценивания уровня знания</text:span><office:annotation-end office:name="__Annotation__5690_156954237"/></text:p>
+   <text:p text:style-name="P106"><text:span text:style-name="T39">Шкала оценивания уровня знания</text:span></text:p>
    <table:table table:name="Таблица24" table:style-name="Таблица24">
     <table:table-column table:style-name="Таблица24.A"/>
     <table:table-column table:style-name="Таблица24.B"/>
@@ -6093,12 +5740,7 @@
     </table:table-row>
    </table:table>
    <text:p text:style-name="P55"/>
-   <text:p text:style-name="P108"><text:span text:style-name="T38"><office:annotation office:name="__Annotation__5691_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-07T13:57:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Вставка из базы шкал оценочных средств</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T38">Шкала оценивания уровня умений</text:span><office:annotation-end office:name="__Annotation__5691_156954237"/></text:p>
+   <text:p text:style-name="P108"><text:span text:style-name="T38">Шкала оценивания уровня умений</text:span></text:p>
    <table:table table:name="Таблица25" table:style-name="Таблица25">
     <table:table-column table:style-name="Таблица25.A"/>
     <table:table-column table:style-name="Таблица25.B"/>
@@ -6163,12 +5805,7 @@
    </table:table>
    <text:p text:style-name="P100"/>
    <text:p text:style-name="P105"/>
-   <text:p text:style-name="P108"><text:span text:style-name="T38"><office:annotation office:name="__Annotation__5692_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-07T13:57:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Вставка из базы шкал оценочных средств</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T38">Шкала оценивания уровня приобретенных владений</text:span><office:annotation-end office:name="__Annotation__5692_156954237"/></text:p>
+   <text:p text:style-name="P108"><text:span text:style-name="T38">Шкала оценивания уровня приобретенных владений</text:span></text:p>
    <table:table table:name="Таблица26" table:style-name="Таблица26">
     <table:table-column table:style-name="Таблица26.A"/>
     <table:table-column table:style-name="Таблица26.B"/>
@@ -6233,12 +5870,7 @@
     </table:table-row>
    </table:table>
    <text:p text:style-name="P15"><text:tab/> </text:p>
-   <text:p text:style-name="P109"><text:span text:style-name="T25"><office:annotation office:name="__Annotation__5693_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-07T14:05:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Вставка из базы шкал оценочных средств</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T25">Форма оценочного листа </text:span><office:annotation-end office:name="__Annotation__5693_156954237"/></text:p>
+   <text:p text:style-name="P109"><text:span text:style-name="T25">Форма оценочного листа </text:span></text:p>
    <table:table table:name="Таблица27" table:style-name="Таблица27">
     <table:table-column table:style-name="Таблица27.A"/>
     <table:table-column table:style-name="Таблица27.B" table:number-columns-repeated="2"/>
@@ -6741,12 +6373,7 @@
       <text:p text:style-name="P61">1</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Таблица28.B4" office:value-type="string">
-      <text:p text:style-name="Standard"><office:annotation office:name="__Annotation__5694_156954237">
-        <dc:creator>itas kuleshov123</dc:creator>
-        <dc:date>2016-06-07T13:10:00</dc:date>
-        <loext:sender-initials>ik</loext:sender-initials>
-        <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор всех позиций из каталога библиотеки и </text:span><text:span text:style-name="T158">Internet</text:span><text:span text:style-name="T157"> источников</text:span></text:p>
-       </office:annotation><text:span text:style-name="T155">Файзрахманов Р.А., Архипов А.В. Проектирование автоматизированных информационных систем на основе объектно-ориентированного подхода : учебное пособие</text:span><text:span text:style-name="T156">, </text:span><text:span text:style-name="T155">Пермский государственный технический университет.— Пермь : Изд-во ПГТУ, 2011 .— 222 с.</text:span><office:annotation-end office:name="__Annotation__5694_156954237"/></text:p>
+      <text:p text:style-name="Standard"><text:span text:style-name="T155">Файзрахманов Р.А., Архипов А.В. Проектирование автоматизированных информационных систем на основе объектно-ориентированного подхода : учебное пособие</text:span><text:span text:style-name="T156">, </text:span><text:span text:style-name="T155">Пермский государственный технический университет.— Пермь : Изд-во ПГТУ, 2011 .— 222 с.</text:span></text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row table:style-name="Таблица28.3">
@@ -6877,31 +6504,16 @@
    <text:p text:style-name="P119"><text:span text:style-name="T45">Перечень </text:span><text:span text:style-name="T46">учебно-методических изданий, рекомендуемых студентам для </text:span><text:span text:style-name="T47">подготовки к занятиям и выполнения самостоятельной работы, а также методические материалы на бумажных и/или электронных носителях, выпущенные кафедрой своими </text:span><text:span text:style-name="T46">силами и предоставляемые студентам во время занятий</text:span><text:span text:style-name="T44">:</text:span></text:p>
    <text:list xml:id="list922251186500937673" text:style-name="WW8Num21">
     <text:list-item>
-     <text:p text:style-name="P120"><office:annotation office:name="__Annotation__5695_156954237">
-       <dc:creator>itas kuleshov123</dc:creator>
-       <dc:date>2016-06-07T13:11:00</dc:date>
-       <loext:sender-initials>ik</loext:sender-initials>
-       <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из списка разработок кафедры</text:span></text:p>
-      </office:annotation><text:span text:style-name="T25">Файзрахманов Р.А., Селезнев К.А. Структурно-функциональный подход к проектированию информационных технологий и автоматизированных систем с использованием CASE-средств</text:span><text:span text:style-name="T46"> </text:span><office:annotation-end office:name="__Annotation__5695_156954237"/><text:span text:style-name="T46">(размещено на внутреннем сервере кафедры в разделе учебных дисциплин)</text:span></text:p>
+     <text:p text:style-name="P120"><text:span text:style-name="T25">Файзрахманов Р.А., Селезнев К.А. Структурно-функциональный подход к проектированию информационных технологий и автоматизированных систем с использованием CASE-средств</text:span><text:span text:style-name="T46"> </text:span><text:span text:style-name="T46">(размещено на внутреннем сервере кафедры в разделе учебных дисциплин)</text:span></text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="P119"><text:span text:style-name="T46">Самостоятельная работа должна носить систематический характер. </text:span><text:span text:style-name="T25">В самостоятельную работу студентов входит освоение теоретического материала, подготовка к лабораторным занятиям, решение домашних индивидуальных заданий. Результаты самостоятельной работы контролируются преподавателем и учитываются </text:span><text:span text:style-name="T48">при аттестации студента (промежуточный зачет по теме, итоговый зачет). </text:span><text:span text:style-name="T25">Формы контроля: контроль качества подготовки к лекционным и лабораторным занятиям (контроль усвоения теоретического материала в виде тестов), выполнения домашних индивидуальных заданий.</text:span></text:p>
    <text:h text:style-name="P20" text:outline-level="1"/>
    <text:h text:style-name="P86" text:outline-level="1"><text:span text:style-name="T33">10 Перечень информационных технологий, используемых при осуществлении образовательного процесса по дисциплине</text:span></text:h>
-   <text:p text:style-name="P75"><text:span text:style-name="T25">Компьютерные обучающие и контролирующие программы: </text:span><office:annotation office:name="__Annotation__5696_156954237">
-     <dc:creator>itas kuleshov123</dc:creator>
-     <dc:date>2016-06-07T14:16:00</dc:date>
-     <loext:sender-initials>ik</loext:sender-initials>
-     <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из базы ПО</text:span></text:p>
-    </office:annotation><text:span text:style-name="T99">ArgoUML, yEd Graph, Edito</text:span><text:span text:style-name="T93">r</text:span><text:span text:style-name="T99">, </text:span><text:span text:style-name="T93">BPWin</text:span><text:span text:style-name="T99">, </text:span><text:span text:style-name="T93">ERWin</text:span><office:annotation-end office:name="__Annotation__5696_156954237"/></text:p>
+   <text:p text:style-name="P75"><text:span text:style-name="T25">Компьютерные обучающие и контролирующие программы: </text:span><text:span text:style-name="T99">ArgoUML, yEd Graph, Edito</text:span><text:span text:style-name="T93">r</text:span><text:span text:style-name="T99">, </text:span><text:span text:style-name="T93">BPWin</text:span><text:span text:style-name="T99">, </text:span><text:span text:style-name="T93">ERWin</text:span></text:p>
    <text:h text:style-name="P20" text:outline-level="1"/>
    <text:h text:style-name="P63" text:outline-level="1"><text:span text:style-name="T33">11Материально-техническое обеспечение дисциплины</text:span></text:h>
-   <text:p text:style-name="P87"><text:span text:style-name="T25"><office:annotation office:name="__Annotation__5697_156954237">
-      <dc:creator>itas kuleshov123</dc:creator>
-      <dc:date>2016-06-07T14:17:00</dc:date>
-      <loext:sender-initials>ik</loext:sender-initials>
-      <text:p text:style-name="P202"><text:span text:style-name="T157">Выбор из базы УМБ</text:span></text:p>
-     </office:annotation></text:span><text:span text:style-name="T29">Компьютерные классы с мультимедийными досками или проекторами</text:span><office:annotation-end office:name="__Annotation__5697_156954237"/></text:p>
+   <text:p text:style-name="P87"><text:span text:style-name="T29">Компьютерные классы с мультимедийными досками или проекторами</text:span></text:p>
    <text:p text:style-name="P170"/>
    <text:p text:style-name="Стиль5"/>
    <text:p text:style-name="Стиль5"/>
