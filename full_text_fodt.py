@@ -26,6 +26,19 @@ def index(text):
 
 	return idx
 
+def _index(text):
+	terms = m.analyze(text)
+	idx = {}
+
+	for rez in terms:
+		print(rez)
+		try:
+			idx.update({rez['analysis'][0]['lex']:(term.count / len(terms))})
+		except:
+			pass
+
+	return idx
+
 def match(query, idx):
 	r = 0.0
 	n = 0
@@ -37,10 +50,11 @@ def match(query, idx):
 			pass
 	return r / n
 
-
 if __name__ == '__main__':
 	idx = index(BS(open(sys.argv[1]).read(), features="xml").get_text())
-	print(dumps(idx, indent = 4, ensure_ascii = 0))
+	# print(dumps(idx, indent = 4, ensure_ascii = 0))
 
 	for q in Q:
 		print(q, match(q, idx))
+
+# PK 09.04.04 | магистр (очная) | Проектирование информационных систем | Разработка программно-информационных систем | очная
