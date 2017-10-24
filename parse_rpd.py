@@ -5,12 +5,16 @@ from docx import Document
 from bs4 import BeautifulSoup as BS
 from json import dumps
 
+from compare import ngramm_compare as NC
+from compare import ngramm_compare_phrase as NCP
+from compare import MIN_W, MIN_P
+
 class RPD():
 	content = {}
 
 	def __safe_get_text(self, element):
 		try:
-			return element.get_text().strip().lower()
+			return re.sub(r"[\t\r\n]+", " ", element.get_text().strip().lower())
 		except:
 			return ""
 
@@ -53,6 +57,14 @@ class RPD():
 			re.findall(r'[«"](.*)[»"]', text)[0].strip()
 		}
 
+	def программа(self, element):
+		return {'программа':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
+
+	def направление_подготовки(self, element):
+		_ = self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])
+		шифр = re.findall(r"(\d+\.\d+\.\d+)", _)[0]
+		наименование = re.findall(r"'(.*)'", _)[0]
+		return {'направление подготовки': {'шифр':шифр, 'наименование':наименование}}
 
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
@@ -61,16 +73,21 @@ class RPD():
 			f.close()
 		for p in self.soup.find_all('w:p'):
 			t = self.__safe_get_text(p)
-			if t == "факультет":
+			if NC(t, "факультет") > MIN_W:
 				self.content.update(self.факультет(p))
-			if t == "кафедра":
+			if NC(t, "кафедра") > MIN_W:
 				self.content.update(self.кафедра(p))
-			if t == "проректор по учебной работе":
+			if NCP(t, "проректор по учебной работе") > MIN_P:
 				self.content.update(self.проректор(p))
-			if t == "учебно-методический комплекс дисциплины":
+			if NCP(t, "учебно-методический комплекс дисциплины") > MIN_P:
 				self.content.update(self.умкд(p))
+			if NC(t, "программа") > MIN_W:
+				self.content.update(self.программа(p))
+			if NCP(t, "направление подготовки") > MIN_P:
+				self.content.update(self.направление_подготовки(p))
 
-		print(self.content)
+
+		print(dumps(self.content, indent = 4, ensure_ascii = 0))
 
 	def __init__(self, docpath = "", content = {}):
 		try:
