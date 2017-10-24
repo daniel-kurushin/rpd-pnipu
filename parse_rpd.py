@@ -66,6 +66,19 @@ class RPD():
 		наименование = re.findall(r"'(.*)'", _)[0]
 		return {'направление подготовки': {'шифр':шифр, 'наименование':наименование}}
 
+	def профиль_программы_магистратуры(self, element):
+		return {'профиль программы магистратуры':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
+
+	def квалификация_выпускника(self, element):
+		return {'квалификация выпускника':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
+
+	def выпускающая_кафедра(self, element):
+		return {'выпускающая кафедра':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
+
+	def форма_обучения(self, element):
+		return {'форма обучения':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
+
+
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
 		with open('log', 'w') as f:
@@ -85,6 +98,16 @@ class RPD():
 				self.content.update(self.программа(p))
 			if NCP(t, "направление подготовки") > MIN_P:
 				self.content.update(self.направление_подготовки(p))
+			print(NCP(t, "профиль программы магистратуры"), t)
+			if NCP(t, "профиль программы магистратуры") > MIN_P:
+				self.content.update(self.профиль_программы_магистратуры(p))
+			if NCP(t, "квалификация выпускника") > MIN_P:
+				self.content.update(self.квалификация_выпускника(p))
+			if NCP(t, "выпускающая кафедра") > MIN_P:
+				self.content.update(self.выпускающая_кафедра(p))
+			if NCP(t, "форма обучения") > MIN_P:
+				self.content.update(self.форма_обучения(p))
+
 
 
 		print(dumps(self.content, indent = 4, ensure_ascii = 0))
