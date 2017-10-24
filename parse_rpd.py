@@ -93,7 +93,6 @@ class RPD():
 
 	def трудоёмкость(self, element):
 		n = 0
-		text = ""
 		while n < 10:
 			element = element.nextSibling
 			n += 1
@@ -112,6 +111,30 @@ class RPD():
 			return {"трудоёмкость": self.__safe_get_text(element)}
 		except AssertionError:
 			return {"трудоёмкость": n}
+
+	def виды_контроля(self, element):
+		n = 0
+		while n < 10:
+			element = element.nextSibling
+			n += 1
+			if element.name == 'w:tbl':
+				break
+		cells = [self.__safe_get_text(_) for _ in element.find_all('w:tc')]
+		try:
+			assert n < 10
+			return {
+				"виды контроля" : {
+					cells[0]: cells[1],
+					cells[2]: cells[3],
+					cells[4]: cells[5],
+					cells[6]: cells[7],
+				}
+			}
+		except IndexError:
+			return {"виды контроля": self.__safe_get_text(element)}
+		except AssertionError:
+			return {"виды контроля": n}
+
 
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
@@ -140,12 +163,14 @@ class RPD():
 				self.content.update(self.выпускающая_кафедра(p))
 			if self.__is_not_set("форма обучения") and NCP(t, "форма обучения") > MIN_P:
 				self.content.update(self.форма_обучения(p))
-			if self.__is_not_set("курс:") and NC(t, "курс:") > MIN_W:
+			if self.__is_not_set("курс") and NC(t, "курс:") > MIN_W:
 				self.content.update(self.курс(p))
 			if self.__is_not_set("семестр(-ы)") and NC(t, "семестр(-ы)") > MIN_W:
 				self.content.update(self.семестр(p))
 			if self.__is_not_set("трудоёмкость") and NC(t, "трудоёмкость") > MIN_W:
 				self.content.update(self.трудоёмкость(p))
+			if self.__is_not_set("виды контроля") and NCP(t, "виды контроля") > MIN_P:
+				self.content.update(self.виды_контроля(p))
 
 
 		print(dumps(self.content, indent = 4, ensure_ascii = 0))
