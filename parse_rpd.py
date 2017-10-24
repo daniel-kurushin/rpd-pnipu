@@ -18,6 +18,13 @@ class RPD():
 		except:
 			return ""
 
+	def __is_not_set(self, key):
+		try:
+			self.content[key]
+			return False
+		except KeyError:
+			return True
+
 	def факультет(self, element):
 		return {'факультет':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
@@ -78,6 +85,33 @@ class RPD():
 	def форма_обучения(self, element):
 		return {'форма обучения':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
+	def курс(self, element):
+		return {'курс':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
+
+	def семестр(self, element):
+		return {'семестр(-ы)':self.__safe_get_text(element.parent.parent.find_all('w:tc')[3])}
+
+	def трудоёмкость(self, element):
+		n = 0
+		text = ""
+		while n < 10:
+			element = element.nextSibling
+			n += 1
+			if element.name == 'w:tbl':
+				break
+		cells = [self.__safe_get_text(_) for _ in element.find_all('w:tc')]
+		try:
+			assert n < 10
+			return {
+				"трудоёмкость" : {
+					cells[0]: [cells[1],cells[2]],
+					cells[3]: [cells[4],cells[5]],
+				}
+			}
+		except IndexError:
+			return {"трудоёмкость": self.__safe_get_text(element)}
+		except AssertionError:
+			return {"трудоёмкость": n}
 
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
@@ -86,27 +120,32 @@ class RPD():
 			f.close()
 		for p in self.soup.find_all('w:p'):
 			t = self.__safe_get_text(p)
-			if NC(t, "факультет") > MIN_W:
+			if self.__is_not_set("факультет") and NC(t, "факультет") > MIN_W:
 				self.content.update(self.факультет(p))
-			if NC(t, "кафедра") > MIN_W:
+			if self.__is_not_set("кафедра") and NC(t, "кафедра") > MIN_W:
 				self.content.update(self.кафедра(p))
-			if NCP(t, "проректор по учебной работе") > MIN_P:
+			if self.__is_not_set("проректор по учебной работе") and NCP(t, "проректор по учебной работе") > MIN_P:
 				self.content.update(self.проректор(p))
-			if NCP(t, "учебно-методический комплекс дисциплины") > MIN_P:
+			if self.__is_not_set("учебно-методический комплекс дисциплины") and NCP(t, "учебно-методический комплекс дисциплины") > MIN_P:
 				self.content.update(self.умкд(p))
-			if NC(t, "программа") > MIN_W:
+			if self.__is_not_set("программа") and NC(t, "программа") > MIN_W:
 				self.content.update(self.программа(p))
-			if NCP(t, "направление подготовки") > MIN_P:
+			if self.__is_not_set("направление подготовки") and NCP(t, "направление подготовки") > MIN_P:
 				self.content.update(self.направление_подготовки(p))
-			if NCP(t, "профиль программы магистратуры") > MIN_P:
+			if self.__is_not_set("профиль программы магистратуры") and NCP(t, "профиль программы магистратуры") > MIN_P:
 				self.content.update(self.профиль_программы_магистратуры(p))
-			if NCP(t, "квалификация выпускника") > MIN_P:
+			if self.__is_not_set("квалификация выпускника") and NCP(t, "квалификация выпускника") > MIN_P:
 				self.content.update(self.квалификация_выпускника(p))
-			if NCP(t, "выпускающая кафедра") > MIN_P:
+			if self.__is_not_set("выпускающая кафедра") and NCP(t, "выпускающая кафедра") > MIN_P:
 				self.content.update(self.выпускающая_кафедра(p))
-			if NCP(t, "форма обучения") > MIN_P:
+			if self.__is_not_set("форма обучения") and NCP(t, "форма обучения") > MIN_P:
 				self.content.update(self.форма_обучения(p))
-
+			if self.__is_not_set("курс:") and NC(t, "курс:") > MIN_W:
+				self.content.update(self.курс(p))
+			if self.__is_not_set("семестр(-ы)") and NC(t, "семестр(-ы)") > MIN_W:
+				self.content.update(self.семестр(p))
+			if self.__is_not_set("трудоёмкость") and NC(t, "трудоёмкость") > MIN_W:
+				self.content.update(self.трудоёмкость(p))
 
 
 		print(dumps(self.content, indent = 4, ensure_ascii = 0))
