@@ -10,8 +10,6 @@ def ngramm_compare_phrase(P1, P2):
 	words1 = list(set(word_tokenizer.tokenize(P1)) - PUNKT)
 	words2 = list(set(word_tokenizer.tokenize(P2)) - PUNKT)
 
-	print(words1, words2)
-
 	P = 1.0
 	for i in range(max(len(words1),len(words2))):
 		p = {-1:1, 0:1, 1:1}

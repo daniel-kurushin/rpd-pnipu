@@ -98,7 +98,6 @@ class RPD():
 				self.content.update(self.программа(p))
 			if NCP(t, "направление подготовки") > MIN_P:
 				self.content.update(self.направление_подготовки(p))
-			print(NCP(t, "профиль программы магистратуры"), t)
 			if NCP(t, "профиль программы магистратуры") > MIN_P:
 				self.content.update(self.профиль_программы_магистратуры(p))
 			if NCP(t, "квалификация выпускника") > MIN_P:
