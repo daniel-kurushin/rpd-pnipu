@@ -18,13 +18,40 @@ class RPD():
 		return {'факультет':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
 	def кафедра(self, element):
-		return {"кафедра":None}
+		return {"кафедра":self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
 	def проректор(self, element):
-		return {"проректор по учебной работе":None}
+		n = 0
+		while n < 10:
+			n += 1
+			element = element.nextSibling
+			if element.name == 'w:tbl':
+				break
+		try:
+			return {
+				"проректор по учебной работе":
+				re.sub(r"\s+", " ", re.sub(r"[\n\xa0_]", " ", element.get_text())).strip()
+			}
+		except AttributeError:
+			pass
+		return None
 
 	def умкд(self, element):
-		return {"учебно-методический комплекс дисциплины":None}
+		n = 0
+		text = ""
+		while n < 10:
+			n += 1
+			element = element.nextSibling
+			try:
+				text += re.sub(r"[\n\r\t]+", " ", element.get_text()).strip()
+			except AttributeError:
+				pass
+		with open('/tmp/a', 'w') as f:
+			f.write(text)
+		return {
+			"учебно-методический комплекс дисциплины":
+			re.findall(r'[«"](.*)[»"]', text)[0].strip()
+		}
 
 
 	def parse(self):
