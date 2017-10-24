@@ -23,6 +23,8 @@ def ngramm_compare_phrase(P1, P2):
 	return P
 
 def ngramm_compare(S1,S2):
+	S1 = S1.replace(" ", "")
+	S2 = S2.replace(" ", "")
 	ngrams = [S1[i:i+3] for i in range(len(S1))]
 	count = 0
 	for ngram in ngrams:
