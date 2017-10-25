@@ -135,41 +135,6 @@ class RPD():
 			return {"виды контроля": n}
 
 	def разработчик(self, element):
-		def get_sokr(author_str):
-			return re.findall(r"(\w\.\s*\w\.)", author_str.split('_')[-1])[0]
-
-		def get_surname(initials, author_str):
-			rez = re.findall(r".*[ _](.*) (%s)(.*).*" % initials, author_str)[0]
-			return rez[0] if rez[0] != "" else rez[2]
-
-		def get_grade(author_str):
-			try:
-				rez = re.findall(r"([^.]{2,7}\.[^.]{2,7}\.[^.]{2,7})[, ]", author_str)[0]
-			except IndexError:
-				try:
-					rez = re.findall(r"(\w\.\w\.\w\.)", author_str)[0]
-				except IndexError:
-					raise ValueError
-			return rez.strip(',')
-
-		def get_position(grade, author_str):
-			# доц.,  к.т.н., доц. _________________ курушин
-			rez = re.findall(r"(.+?)?,?(%s), ?(.+?)? " % grade, author_str)[0]
-			return rez[0] if rez[0] != "" else rez[2]
-
-		def filter_sokr(initials):
-			rez = tuple([s.strip() for s in initials.split(".")[0:2]])
-			return ("%s. %s." % rez).upper()
-
-		def filter_surname(surname):
-			return surname.strip().capitalize()
-
-		def filter_grade(grade):
-			return re.sub(r"\.", ". ", re.sub(r"[, ]", "", grade)).strip()
-
-		def filter_position(position):
-			return re.sub(r"[, ]", "", position)
-
 		n = 0
 		text = ""
 		while n < 20:
@@ -183,27 +148,11 @@ class RPD():
 		rez = [_.strip() for _ in text.split("^") if _ != ""]
 		authors = []
 		for author in rez:
-			try:
-				initials = get_sokr(author)
-				surname = get_surname(initials, author)
-				grade = get_grade(author)
-				position = get_position(grade, author)
-				initials = filter_sokr(initials)
-				surname = filter_surname(surname)
-				grade = filter_grade(grade)
-				position = filter_position(position)
-				authors += [
-					{
-						"ФИО": "%s %s" % (initials, surname),
-						"Должность": position,
-						"Степень": grade,
-					}
-				]
-			except Exception as e:
-				pass
+			if re.match(r".*(\w\.\s?\w\.)[^.]*", author):
+				authors += [re.sub(r"_", "", author)]
 
 		return { "авторы" : authors }
-		
+
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
 		with open('log', 'w') as f:
