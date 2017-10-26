@@ -3,12 +3,13 @@ from nltk.tokenize import WordPunctTokenizer as WPT
 MIN_P = 0.55
 MIN_W = 0.62
 PUNKT = set(['.', ',', ':', '!', '?'])
+DIGITS = set([str(i) for i in range(10)])
 
 def ngramm_compare_phrase(P1, P2):
 	word_tokenizer = WPT()
 
-	words1 = list(set(word_tokenizer.tokenize(P1)) - PUNKT)
-	words2 = list(set(word_tokenizer.tokenize(P2)) - PUNKT)
+	words1 = list(set(word_tokenizer.tokenize(P1)) - PUNKT - DIGITS)
+	words2 = list(set(word_tokenizer.tokenize(P2)) - PUNKT - DIGITS)
 
 	P = 1.0
 	for i in range(max(len(words1),len(words2))):
