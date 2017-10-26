@@ -10,7 +10,6 @@ wpt = WPT()
 def ngramm_compare_phrase(P1, P2):
 	words1 = [word for word in wpt.tokenize(P1) if word not in TO_REMOVE]
 	words2 = [word for word in wpt.tokenize(P2) if word not in TO_REMOVE]
-	print(words2, words1, TO_REMOVE)
 	P = 1.0
 	for i in range(max(len(words1),len(words2))):
 		p = {-1:1, 0:1, 1:1}
@@ -37,4 +36,4 @@ if __name__ == '__main__':
 	wpt = WPT()
 	print(ngramm_compare_phrase("Рабочая программа рассмотрена и одобрена на заседании кафедры", 'рабочая программа рассмотрена и одобрена на заседании кафедры'))
 	print(ngramm_compare_phrase("раз два три", 'раз два три'))
-	print(ngramm_compare_phrase("раз два три", 'раз два три чке'))
+	print(ngramm_compare_phrase("в процессе изучения данной дисциплины студент осваивает следующие компетенции", 'в процессе изучения данной дисциплины студент осваивает следующие компетенции:'))

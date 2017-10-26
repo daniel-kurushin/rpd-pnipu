@@ -29,11 +29,14 @@ class RPD():
 	def __find_end_of_text(self, element, const, limit = 20):
 		n = 0
 		text = ""
+		log = []
 		while n < limit:
 			n += 1
 			element = element.nextSibling
 			_ = self.__safe_get_text(element)
-			if NCP(const, _) > MIN_P:
+			x = NCP(const, _)
+			log += [(x, _)]
+			if x > MIN_P:
 				break
 			text += "^" + _
 		text = re.sub(r"\^+","^", text)
@@ -41,7 +44,7 @@ class RPD():
 			assert n < limit
 			return [_.strip() for _ in text.split("^") if _ != ""]
 		except AssertionError:
-			raise ValueError("«%s» is not found in limit %s" % (const, limit))
+			raise ValueError("«%s» is not found in limit %s, text = %s, log = %s" % (const, limit, text, log))
 
 	def __collect_text_from(self, element, limit = 10):
 		n = 0
@@ -171,8 +174,10 @@ class RPD():
 		}
 
 	def цель_дисциплины(self, element):
-		x  ="В процессе изучения данной дисциплины студент осваивает следующие компетенции"
-		return {"цель дисциплины":1}
+		rez = self.__find_end_of_text(element, "в процессе изучения данной дисциплины студент осваивает следующие компетенции")
+		# print(rez)
+		# exit(0)
+		return {"цель дисциплины": str(rez)}
 
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
@@ -213,6 +218,7 @@ class RPD():
 				self.content.update(self.разработчик(p))
 			if self.__is_not_set("утверждение и согласование") and NCP(t, "рабочая программа рассмотрена и одобрена на заседании кафедры") > MIN_P:
 				self.content.update(self.утверждение_и_согласование(p))
+			# print(NCP(t, "Цель учебной дисциплины"), t)
 			if self.__is_not_set("цель дисциплины") and NCP(t, "Цель учебной дисциплины") > MIN_P:
 				self.content.update(self.цель_дисциплины(p))
 
