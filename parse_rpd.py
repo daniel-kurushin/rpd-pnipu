@@ -26,6 +26,48 @@ class RPD():
 		except KeyError:
 			return True
 
+	def __find_end_of_text(self, element, const, limit = 20):
+		n = 0
+		text = ""
+		while n < limit:
+			n += 1
+			element = element.nextSibling
+			_ = self.__safe_get_text(element)
+			if NCP(const, _) > MIN_P:
+				break
+			text += "^" + _
+		text = re.sub(r"\^+","^", text)
+		try:
+			assert n < limit
+			return [_.strip() for _ in text.split("^") if _ != ""]
+		except AssertionError:
+			raise ValueError("«%s» is not found in limit %s" % (const, limit))
+
+	def __collect_text_from(self, element, limit = 10):
+		n = 0
+		text = ""
+		while n < limit:
+			n += 1
+			element = element.nextSibling
+			try:
+				text += re.sub(r"[\n\r\t]+", " ", element.get_text()).strip()
+			except AttributeError:
+				pass
+		return text
+
+	def __find_next_element(self, element, const, limit = 10):
+		n = 0
+		while n < limit:
+			n += 1
+			element = element.nextSibling
+			if element.name == const:
+				break
+		try:
+			assert n < limit
+			return element
+		except AssertionError:
+			raise ValueError("«%s» is not found in limit %s" % (const, limit))
+
 	def факультет(self, element):
 		return {'факультет':self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
@@ -33,12 +75,7 @@ class RPD():
 		return {"кафедра":self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
 	def проректор(self, element):
-		n = 0
-		while n < 10:
-			n += 1
-			element = element.nextSibling
-			if element.name == 'w:tbl':
-				break
+		element = self.__find_next_element(element, 'w:tbl')
 		try:
 			return {
 				"проректор по учебной работе":
@@ -49,15 +86,7 @@ class RPD():
 		return None
 
 	def умкд(self, element):
-		n = 0
-		text = ""
-		while n < 10:
-			n += 1
-			element = element.nextSibling
-			try:
-				text += re.sub(r"[\n\r\t]+", " ", element.get_text()).strip()
-			except AttributeError:
-				pass
+		text = self.__collect_text_from(element)
 		return {
 			"учебно-методический комплекс дисциплины":
 			re.findall(r'[«"](.*)[»"]', text)[0].strip()
@@ -91,67 +120,59 @@ class RPD():
 		return {'семестр(-ы)':self.__safe_get_text(element.parent.parent.find_all('w:tc')[3])}
 
 	def трудоёмкость(self, element):
-		n = 0
-		while n < 10:
-			element = element.nextSibling
-			n += 1
-			if element.name == 'w:tbl':
-				break
+		element = self.__find_next_element(element, 'w:tbl')
 		cells = [self.__safe_get_text(_) for _ in element.find_all('w:tc')]
-		try:
-			assert n < 10
-			return {
-				"трудоёмкость" : {
-					cells[0]: [cells[1],cells[2]],
-					cells[3]: [cells[4],cells[5]],
-				}
+		return {
+			"трудоёмкость" : {
+				cells[0]: [cells[1],cells[2]],
+				cells[3]: [cells[4],cells[5]],
 			}
-		except IndexError:
-			return {"трудоёмкость": self.__safe_get_text(element)}
-		except AssertionError:
-			return {"трудоёмкость": n}
+		}
 
 	def виды_контроля(self, element):
-		n = 0
-		while n < 10:
-			element = element.nextSibling
-			n += 1
-			if element.name == 'w:tbl':
-				break
+		element = self.__find_next_element(element, 'w:tbl')
 		cells = [self.__safe_get_text(_) for _ in element.find_all('w:tc')]
-		try:
-			assert n < 10
-			return {
-				"виды контроля" : {
-					cells[0]: cells[1],
-					cells[2]: cells[3],
-					cells[4]: cells[5],
-					cells[6]: cells[7],
-				}
+		return {
+			"виды контроля" : {
+				cells[0]: cells[1],
+				cells[2]: cells[3],
+				cells[4]: cells[5],
+				cells[6]: cells[7],
 			}
-		except IndexError:
-			return {"виды контроля": self.__safe_get_text(element)}
-		except AssertionError:
-			return {"виды контроля": n}
+		}
 
 	def разработчик(self, element):
-		n = 0
-		text = ""
-		while n < 20:
-			n += 1
-			element = element.nextSibling
-			_ = self.__safe_get_text(element)
-			if NCP("Рабочая программа рассмотрена и одобрена на заседании кафедры", _) > MIN_P:
-				break
-			text += "^" + _
-		text = re.sub(r"\^+","^", text)
-		rez = [_.strip() for _ in text.split("^") if _ != ""]
+		rez = self.__find_end_of_text(element, "Рабочая программа рассмотрена и одобрена на заседании кафедры", 20)
 		authors = []
 		for author in rez:
 			if re.match(r".*(\w\.\s?\w\.)[^.]*", author):
 				authors += [re.sub(r"_", "", author)]
 
 		return { "авторы" : authors }
+
+	def утверждение_и_согласование(self, element):
+		element = self.__find_next_element(element, 'w:tbl')
+		кафедра, дата, протокол = [self.__safe_get_text(_) for _ in element.find_all('w:tc')][0:3]
+		element = self.__find_next_element(element, 'w:tbl')
+		вед_кафедра = [self.__safe_get_text(_) for _ in element.find_all('w:tc')][1]
+		element = self.__find_next_element(element, 'w:tbl')
+		element = self.__find_next_element(element, 'w:tbl')
+		вып_кафедра = [self.__safe_get_text(_) for _ in element.find_all('w:tc')][1]
+
+		return {
+			"утверждение и согласование" :
+			{
+				"кафедра": кафедра,
+				"дата": дата,
+				"протокол №": протокол,
+				"ведущая кафедра": вед_кафедра,
+				"выпускающая кафедра": вып_кафедра
+			}
+		}
+
+	def цель_дисциплины(self, element):
+		x  ="В процессе изучения данной дисциплины студент осваивает следующие компетенции"
+		return {"цель дисциплины":1}
 
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
@@ -190,6 +211,10 @@ class RPD():
 				self.content.update(self.виды_контроля(p))
 			if self.__is_not_set("разработчик(-и)") and NC(t, "разработчик(-и)") > MIN_W:
 				self.content.update(self.разработчик(p))
+			if self.__is_not_set("утверждение и согласование") and NCP(t, "рабочая программа рассмотрена и одобрена на заседании кафедры") > MIN_P:
+				self.content.update(self.утверждение_и_согласование(p))
+			if self.__is_not_set("цель дисциплины") and NCP(t, "Цель учебной дисциплины") > MIN_P:
+				self.content.update(self.цель_дисциплины(p))
 
 		print(dumps(self.content, indent = 4, ensure_ascii = 0))
 
