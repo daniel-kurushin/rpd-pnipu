@@ -2,15 +2,15 @@ from nltk.tokenize import WordPunctTokenizer as WPT
 
 MIN_P = 0.55
 MIN_W = 0.62
-PUNKT = set(['.', ',', ':', '!', '?'])
-DIGITS = set([str(i) for i in range(10)])
-TO_REMOVE = PUNKT & DIGITS
+PUNKT = ['.', ',', ':', '!', '?']
+DIGITS = [str(i) for i in range(10)]
+TO_REMOVE = PUNKT + DIGITS
 wpt = WPT()
 
 def ngramm_compare_phrase(P1, P2):
 	words1 = [word for word in wpt.tokenize(P1) if word not in TO_REMOVE]
 	words2 = [word for word in wpt.tokenize(P2) if word not in TO_REMOVE]
-
+	print(words2, words1, TO_REMOVE)
 	P = 1.0
 	for i in range(max(len(words1),len(words2))):
 		p = {-1:1, 0:1, 1:1}
