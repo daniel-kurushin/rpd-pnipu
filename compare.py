@@ -4,12 +4,12 @@ MIN_P = 0.55
 MIN_W = 0.62
 PUNKT = set(['.', ',', ':', '!', '?'])
 DIGITS = set([str(i) for i in range(10)])
+TO_REMOVE = PUNKT & DIGITS
+wpt = WPT()
 
 def ngramm_compare_phrase(P1, P2):
-	word_tokenizer = WPT()
-
-	words1 = list(set(word_tokenizer.tokenize(P1)) - PUNKT - DIGITS)
-	words2 = list(set(word_tokenizer.tokenize(P2)) - PUNKT - DIGITS)
+	words1 = [word for word in wpt.tokenize(P1) if word not in TO_REMOVE]
+	words2 = [word for word in wpt.tokenize(P2) if word not in TO_REMOVE]
 
 	P = 1.0
 	for i in range(max(len(words1),len(words2))):
@@ -32,3 +32,9 @@ def ngramm_compare(S1,S2):
 		count += S2.count(ngram)
 
 	return count/max(len(S1), len(S2))
+
+if __name__ == '__main__':
+	wpt = WPT()
+	print(ngramm_compare_phrase("Рабочая программа рассмотрена и одобрена на заседании кафедры", 'рабочая программа рассмотрена и одобрена на заседании кафедры'))
+	print(ngramm_compare_phrase("раз два три", 'раз два три'))
+	print(ngramm_compare_phrase("раз два три", 'раз два три чке'))
