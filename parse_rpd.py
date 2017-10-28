@@ -201,7 +201,7 @@ class RPD():
 		rez = {}
 
 		for competence in self.__find_end_of_text(element, 'перечень планируемых результатов обучения по дисциплине'):
-			competence_code = re.findall(r'.*(\(.{2,5}\).*)', competence)[0]
+			competence_code = re.findall(r'.*(\(.{1,3}-\d{1,3}\).*)', competence)[0]
 			try:
 				assert competence_code != ""
 				competence_text = competence.split(competence_code)[1].strip()
