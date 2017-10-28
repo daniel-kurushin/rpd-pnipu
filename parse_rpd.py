@@ -11,6 +11,7 @@ from compare import MIN_W, MIN_P
 from pymystem3 import Mystem
 
 class RPD():
+
 	content = {}
 
 	def __safe_get_text(self, element):
@@ -175,9 +176,26 @@ class RPD():
 
 	def цель_дисциплины(self, element):
 		rez = self.__find_end_of_text(element, "в процессе изучения данной дисциплины студент осваивает следующие компетенции")
-		# print(rez)
-		# exit(0)
-		return {"цель дисциплины": str(rez)}
+		target = {'являться':{'found':0, 'text':''}, ':':{'found':0, 'text':''}}
+		for word in self.ma.analyze(" ".join(rez)):
+			for key in ['являться', ':']:
+				if target[key]['found']:
+					target[key]['text'] += word['text']
+			try:
+				if word['text'] == ': ':
+					target[':']['found'] = 1
+				if word['analysis'][0]['lex'] == 'являться':
+					target['являться']['found'] = 1
+			except (KeyError, IndexError):
+				pass
+
+		target['являться']['text'] = target['являться']['text'].strip('\n')
+		target[':']['text'] = target[':']['text'].strip('\n')
+		if target[':']['text'].strip() != "":
+			rez = target[':']['text'].strip()
+		else:
+			rez = target['являться']['text'].strip()
+		return {"цель дисциплины": rez}
 
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
