@@ -242,7 +242,7 @@ class RPD():
 			rez[key] = {}
 			for part in parts:
 				try:
-					competence_code = re.findall(r'.*\((.{1,3}-\d{1,3})\).*', part)[0]
+					competence_code = re.findall(r'.*\((.{1,3}-\d{1,3})\).*', part)[0].upper()
 					competence_text = re.sub(r"^\W{0,3}", "", re.sub(r'\W{0,3}$', '', part.split(competence_code)[0]))
 				except IndexError:
 					competence_code = "NONE"
