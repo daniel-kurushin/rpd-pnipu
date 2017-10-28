@@ -197,6 +197,25 @@ class RPD():
 			rez = target['являться']['text'].strip()
 		return {"цель дисциплины": rez}
 
+	def компетенции(self, element):
+		rez = {}
+
+		for competence in self.__find_end_of_text(element, 'перечень планируемых результатов обучения по дисциплине'):
+			competence_code = re.findall(r'.*(\(.{2,5}\).*)', competence)[0]
+			try:
+				assert competence_code != ""
+				competence_text = competence.split(competence_code)[1].strip()
+				if competence_text == "":
+					raise IndexError()
+			except IndexError:
+				competence_text = competence.split(competence_code)[0].strip()
+			except AssertionError:
+				pass
+			competence_text = re.sub(r'^\W+', '', competence_text)
+			competence_code = re.sub(r'^\W+', '', re.sub(r'\W+$', '', competence_code)).upper()
+			rez.update({competence_code:competence_text})
+		return {"компетенции": rez}
+
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
 		with open('log', 'w') as f:
@@ -237,8 +256,10 @@ class RPD():
 			if self.__is_not_set("утверждение и согласование") and NCP(t, "рабочая программа рассмотрена и одобрена на заседании кафедры") > MIN_P:
 				self.content.update(self.утверждение_и_согласование(p))
 			# print(NCP(t, "Цель учебной дисциплины"), t)
-			if self.__is_not_set("цель дисциплины") and NCP(t, "Цель учебной дисциплины") > MIN_P:
+			if self.__is_not_set("цель дисциплины") and NCP(t, "цель учебной дисциплины") > MIN_P:
 				self.content.update(self.цель_дисциплины(p))
+			if self.__is_not_set("компетенции") and NCP(t, "в процессе изучения данной дисциплины студент осваивает следующие компетенции") > MIN_P:
+				self.content.update(self.компетенции(p))
 
 		print(dumps(self.content, indent = 4, ensure_ascii = 0))
 
