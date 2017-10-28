@@ -216,6 +216,48 @@ class RPD():
 			rez.update({competence_code:competence_text})
 		return {"компетенции": rez}
 
+	def результаты_обучения(self, element):
+		rez = {}
+		text = self.__find_end_of_text(element, 'место дисциплины в структуре образовательной программы', 100)
+		keys = ['знать', 'уметь', 'владеть']
+		key = None
+		for word in self.ma.analyze(" ".join(text)):
+			try:
+				lex = word['analysis'][0]['lex']
+				if lex in keys:
+					key = lex
+			except (KeyError, IndexError):
+				pass
+			try:
+				rez[key] += word['text']
+			except KeyError:
+				rez.update({key:word['text']})
+			except IndexError:
+				pass
+
+		del(rez[None])
+
+		for key in rez.keys():
+			parts = re.split(r'[;.]',re.sub(r'^%s' % key, '', rez[key]))
+			rez[key] = {}
+			for part in parts:
+				try:
+					competence_code = re.findall(r'.*\((.{1,3}-\d{1,3})\).*', part)[0]
+					competence_text = re.sub(r"^\W{0,3}", "", re.sub(r'\W{0,3}$', '', part.split(competence_code)[0]))
+				except IndexError:
+					competence_code = "NONE"
+					competence_text = re.sub(r"^\W{0,3}", "", re.sub(r'\W{0,3}$', '', part))
+				try:
+					competence_text = competence_text.strip()
+					assert competence_text != ""
+					rez[key][competence_code] += [competence_text]
+				except KeyError:
+					rez[key].update({competence_code:[competence_text]})
+				except AssertionError:
+					pass
+
+		return {"результаты обучения": rez}
+
 	def parse(self):
 		self.soup = BS(self.docx.element.xml)
 		with open('log', 'w') as f:
@@ -260,6 +302,8 @@ class RPD():
 				self.content.update(self.цель_дисциплины(p))
 			if self.__is_not_set("компетенции") and NCP(t, "в процессе изучения данной дисциплины студент осваивает следующие компетенции") > MIN_P:
 				self.content.update(self.компетенции(p))
+			if self.__is_not_set("результаты обучения") and NCP(t, "перечень планируемых результатов обучения по дисциплине") > MIN_P:
+				self.content.update(self.результаты_обучения(p))
 
 		print(dumps(self.content, indent = 4, ensure_ascii = 0))
 
