@@ -79,15 +79,13 @@ class RPD():
 		return {"кафедра":self.__safe_get_text(element.parent.parent.find_all('w:tc')[1])}
 
 	def проректор(self, element):
-		element = self.__find_next_element(element, 'w:tbl')
-		try:
-			return {
-				"проректор по учебной работе":
-				re.sub(r"\s+", " ", re.sub(r"[\n\xa0_]", " ", element.get_text())).strip()
-			}
-		except AttributeError:
-			pass
-		return None
+		rez = re.sub(r"[_«»\"'0-9]", "", " ".join(self.__find_end_of_text(element, "учебно-методический комплекс дисциплины")))
+
+		rez = re.sub(r"\w\.\s?$", "", rez).strip()
+
+		return {
+			"проректор по учебной работе": rez
+		}
 
 	def умкд(self, element):
 		text = self.__collect_text_from(element)
@@ -235,7 +233,10 @@ class RPD():
 			except IndexError:
 				pass
 
-		del(rez[None])
+		try:
+			del(rez[None])
+		except KeyError:
+			pass
 
 		for key in rez.keys():
 			parts = re.split(r'[;.]',re.sub(r'^%s' % key, '', rez[key]))
@@ -319,7 +320,8 @@ class RPD():
 		self.content = content
 
 def test():
-	rpd = RPD('РПД_дисциплины_1.docx')
+	import sys
+	rpd = RPD(sys.argv[1])
 	del rpd
 	rpd = RPD()
 
