@@ -7,6 +7,8 @@ from time import sleep
 from datetime import datetime
 
 from database.users import users
+from database.users import calc_hash
+
 from exceptions import LoginError
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
@@ -36,6 +38,18 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		self.wfile.write(str.encode(json.dumps(data, indent = 4)))
 
+	def _do_login(self, data):
+		try:
+			_user = data['login'][0]
+			_pass = data['pass'][0]
+			_hash = calc_hash("%s^%s" % (_user, _pass))
+			print(_hash)
+			if users[_user]['hash'] != _hash:
+				raise LoginError('Incorrect password')
+		except KeyError:
+			raise LoginError('No such user "%s"' % _user)
+		self._redirect('/_user)
+
 	def do_GET(self):
 		if self.path.endswith('png'):
 			self._load_file(self.path.lstrip('/'), content_type='image/png')
@@ -48,8 +62,8 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			elif self.path.endswith('css'):
 				content_type = 'text/css'
 			self._load_file(self.path.lstrip('/'), content_type=content_type)
-		elif self.path.startswith('/login'):
-			self._load_file('static/login.html')
+		elif self.path.startswith('/auth'):
+			self._load_file('static/auth.html')
 		else:
 			self._load_file('index.html')
 
@@ -60,16 +74,17 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			).decode('utf-8')
 		)
 		print(self.path, data, file = sys.stderr)
-		if self.path.startswith('/login'):
+		if self.path.startswith('/auth'):
 			try:
 				self._do_login(data)
-			except LoginError:
-				self._load_file('static/login.html')
+			except LoginError as e:
+				print(e)
+				self._load_file('static/auth.html')
 
 if __name__ == '__main__':
 	server = HTTPServer(('0.0.0.0', 8000), RPDRequestHandler)
 	try:
 		server.serve_forever()
 	except KeyboardInterrupt:
-		print("finished\n")
+		print("\nfinished\n")
 		exit(1)
