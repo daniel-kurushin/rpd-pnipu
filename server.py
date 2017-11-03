@@ -6,6 +6,9 @@ from threading import Thread
 from time import sleep
 from datetime import datetime
 
+from database.users import users
+from exceptions import LoginError
+
 class RPDRequestHandler(BaseHTTPRequestHandler):
 	def _load_file(self, name, context=None, content_type='text/html'):
 		self.send_response(200)
@@ -45,10 +48,28 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			elif self.path.endswith('css'):
 				content_type = 'text/css'
 			self._load_file(self.path.lstrip('/'), content_type=content_type)
+		elif self.path.startswith('/login'):
+			self._load_file('static/login.html')
 		else:
 			self._load_file('index.html')
 
+	def do_POST(self):
+		data = urllib.parse.parse_qs(
+			self.rfile.read(
+				int(self.headers.get('content-length'))
+			).decode('utf-8')
+		)
+		print(self.path, data, file = sys.stderr)
+		if self.path.startswith('/login'):
+			try:
+				self._do_login(data)
+			except LoginError:
+				self._load_file('static/login.html')
 
 if __name__ == '__main__':
 	server = HTTPServer(('0.0.0.0', 8000), RPDRequestHandler)
-	server.serve_forever()
+	try:
+		server.serve_forever()
+	except KeyboardInterrupt:
+		print("finished\n")
+		exit(1)
