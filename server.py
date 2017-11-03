@@ -27,6 +27,13 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				)
 		self.wfile.write(data)
 
+	def _redirect(self, url, cookies = ""):
+		self.send_response(302)
+		self.send_header('location', url)
+		# self.send_header('')
+		self.end_headers()
+		self.wfile.write(bytes('data', 'utf-8'))
+
 	def _load_str(self, data):
 		self.send_response(200)
 		self.end_headers()
@@ -48,7 +55,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				raise LoginError('Incorrect password')
 		except KeyError:
 			raise LoginError('No such user "%s"' % _user)
-		self._redirect('/_user')
+		self._redirect('/rpd_main/%s' % (urllib.parse.urlencode({'login':_user.encode('utf-8')})), cookies = hash(_user))
 
 	def do_GET(self):
 		if self.path.endswith('png'):
@@ -65,7 +72,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		elif self.path.startswith('/auth'):
 			self._load_file('static/auth.html')
 		else:
-			self._load_file('index.html')
+			self._load_str('index.html')
 
 	def do_POST(self):
 		data = urllib.parse.parse_qs(
