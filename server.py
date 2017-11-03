@@ -48,7 +48,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				raise LoginError('Incorrect password')
 		except KeyError:
 			raise LoginError('No such user "%s"' % _user)
-		self._redirect('/_user)
+		self._redirect('/_user')
 
 	def do_GET(self):
 		if self.path.endswith('png'):
