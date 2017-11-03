@@ -1,0 +1,66 @@
+body {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	overflow: auto;
+}
+
+login {
+	display: block;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 50%;
+	height: 50%;
+	padding: 20px;
+	position: absolute;
+	margin: auto;
+	border-radius: 100px;
+	border-left: 5px solid darkblue;
+	border-right: 5px solid darkblue;
+}
+
+login form {
+	 float: left;
+	 padding-top: 10%;
+	 font-family: arial;
+	 font-size: larger;
+	 padding-right: 20px;
+	 padding-left: 10px;
+}
+
+login form input {
+	 float: right;
+	 margin-left: 10px;
+}
+
+login form .password {
+	padding-top: 10px;
+}
+
+login form .submit {
+	text-align: center;
+	padding-top: 10px;
+}
+
+login .title {
+	font-size: xx-large;
+	width: 15%;
+	float: left;
+	padding-top: 50px;
+	font-family: arial;
+}
+
+login .logo {
+	font-size: x-large;
+	float: right;
+	padding: 30px;
+	border: 7px solid darkblue;
+	border-radius: 100px;
+	color: darkblue;
+	font-family: arial;
+	font-weight: bolder;
+}
