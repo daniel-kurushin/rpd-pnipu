@@ -81,7 +81,7 @@ subjectlist {
 	bottom: 48px;
 	right: 0px;
 	width: 80%;
-	background-color: cyan;
+	overflow-y: scroll;
 }
 
 aside {
@@ -89,19 +89,34 @@ aside {
 	position: fixed;
 	left: 0px;
 	top: 48px;
-	bottom: 48px;
+	bottom: 0px;
 	width: 20%;
-	background-color: blueviolet;
 }
 
 footer {
 	display: block;
 	position: fixed;
 	bottom: 0px;
-	left: 0px;
+	left: 20%;
 	right: 0px;
 	height: 48px;
-	background-color: burlywood;
+	text-align: center;
+	font-size: smaller;
+	font-family: arial;
+}
+
+footer > * {
+	display: inline-block;
+	width: 100px;
+	height: 48px;
+	padding-top: 12px;
+}
+
+footer a {
+	text-decoration: none;
+	color: black;
+	padding: 5px;
+	border: 1px solid lightblue;
 }
 
 header .title {
@@ -156,22 +171,59 @@ header .pnipu_logo {
 
 header form {
 	position: absolute;
-	margin: auto;
-	left: 0px;
+	left: 20%;
 	right: 0px;
-	width: 70%;
 	bottom: 0px;
 	font-size: small;
-	text-align: center;
 }
 
 header form .search_text {
-	width: 80%;
+	width: 60%;
 	border: 1px solid lightblue;
+	padding: 0px;
 }
 
 header form .search_btn {
 	padding: 0px;
-	width: 15%;
-	border: 0px solid aquamarine;
+	width: 10%;
+	border: 1px solid lightblue;
+}
+
+header form .edit_btn {
+	padding: 0px;
+	width: 10%;
+	border: 1px solid lightblue;
+}
+
+aside .editor {
+	background-color: white;
+	display: block;
+	margin: 10px;
+	padding: 5px;
+	font-size: small;
+	font-family: arial;
+	border: 1px solid lightblue;
+}
+
+.editor span {
+	display: block;
+}
+
+.editor input {
+
+}
+
+subjectlist subject {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid lightblue;
+}
+
+subject rpdlist {
+	display: block;
+	padding-left: 10px;
+}
+
+rpdlist label {
+	display: block;
 }
