@@ -27,6 +27,15 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				)
 		self.wfile.write(data)
 
+	def _redirect(self, url, cookies = ""):
+		"""редирект клиента с опциональным выставлеинем куков"""
+		self.send_response(302)
+		self.send_header('Location', url)
+		if cookies:
+			self.send_header('Set-Cookie', cookies)
+		self.end_headers()
+		self.wfile.write(bytes('data', 'utf-8'))
+
 	def _load_str(self, data):
 		self.send_response(200)
 		self.end_headers()
@@ -48,7 +57,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				raise LoginError('Incorrect password')
 		except KeyError:
 			raise LoginError('No such user "%s"' % _user)
-		self._redirect('/_user')
+		self._redirect('/rpd_main/?%s' % urllib.parse.urlencode({'login':_user}))
 
 	def do_GET(self):
 		if self.path.endswith('png'):
@@ -64,6 +73,8 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			self._load_file(self.path.lstrip('/'), content_type=content_type)
 		elif self.path.startswith('/auth'):
 			self._load_file('static/auth.html')
+		elif self.path.startswith('/rpd_main'):
+			self._load_file('static/rpd_main.html')
 		else:
 			self._load_file('index.html')
 
