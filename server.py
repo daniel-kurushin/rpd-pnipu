@@ -8,13 +8,19 @@ from datetime import datetime
 
 from database.users import users
 from database.users import calc_hash
+from database.users import set_auth_cookies, check_auth_cookies, del_auth_cookies
 
 from exceptions import LoginError, WrongPasswordError, WrongUsernameError
 from forms import LoginForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
-	def _load_file(self, name, context=None, content_type='text/html'):
+	def _send_cookies(self, cookies = []):
+		for cookie in cookies:
+			self.send_header('Set-Cookie', cookie)
+
+	def _load_file(self, name, context=None, content_type='text/html', cookies = []):
 		self.send_response(200)
+		self._send_cookies(cookies)
 		self.send_header('Content-type', content_type)
 		self.end_headers()
 		data = ''
@@ -28,17 +34,17 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				)
 		self.wfile.write(data)
 
-	def _redirect(self, url, cookies = ""):
-		"""редирект клиента с опциональным выставлеинем куков"""
+	def _redirect(self, url, cookies = []):
+		"""редирект клиента с опциональным выставлением куков"""
 		self.send_response(302)
 		self.send_header('Location', url)
-		if cookies:
-			self.send_header('Set-Cookie', cookies)
+		self._send_cookies(cookies)
 		self.end_headers()
 		self.wfile.write(bytes('data', 'utf-8'))
 
-	def _load_str(self, data):
+	def _load_str(self, data, cookies = []):
 		self.send_response(200)
+		self._send_cookies(cookies)
 		self.end_headers()
 		self.wfile.write(bytes(str(data), 'utf-8'))
 
@@ -55,10 +61,10 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			_hash = calc_hash("%s^%s" % (_user, _pass))
 			print(_hash, users)
 			if users[_user]['hash'] != _hash:
-				raise WrongPasswordError('Неверный пароль для порльзователя "%s"' % _user)
+				raise WrongPasswordError('Неверный пароль для пользователя "%s"' % _user)
 		except KeyError:
 			raise WrongUsernameError('Нет пользователя с именем "%s"' % _user)
-		self._redirect('/rpd_main/?%s' % urllib.parse.urlencode({'login':_user}))
+		self._redirect('/rpd_main/?%s' % urllib.parse.urlencode({'login':_user}), cookies = set_auth_cookies(_user))
 
 	def show_login_form(self, login = None, password = None, redirect = None, error = None):
 		self._load_str(
@@ -71,6 +77,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		)
 
 	def do_GET(self):
+		print(self.headers)
 		if self.path.endswith('png'):
 			self._load_file(self.path.lstrip('/'), content_type='image/png')
 		elif self.path.endswith('jpg'):
@@ -82,10 +89,14 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			elif self.path.endswith('css'):
 				content_type = 'text/css'
 			self._load_file(self.path.lstrip('/'), content_type=content_type)
+		elif self.path  == '/':
+			self._redirect('/auth/')
 		elif self.path.startswith('/auth'):
 			self.show_login_form()
 		elif self.path.startswith('/rpd_main'):
 			self._load_file('static/rpd_main.html')
+		elif self.path.startswith('/logout'):
+			self._load_str('static/rpd_main.html', cookies = ['1=2','3=4'])
 		else:
 			self._load_file('index.html')
 
@@ -103,6 +114,8 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				self._do_login(_user, _pass)
 			except LoginError as e:
 				self.show_login_form(login = _user, password = _pass, error = e)
+			except KeyError as e:
+				self.show_login_form(error = e)
 
 
 if __name__ == '__main__':

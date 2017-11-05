@@ -37,7 +37,7 @@ class LoginForm():
 		elif type(self.error) == WrongUsernameError:
 			input_to_change_class = inputs[0]
 		else:
-			raise Exception("Непонятно!")
+			input_to_change_class = inputs[0]
 		input_to_change_class['style'] = 'background-color:coral;'
 		input_to_change_class['title'] = str(self.error)
 		p = BS('<p><a href="/lost/">Забыли пароль?</a></p>').p
@@ -53,5 +53,5 @@ class LoginForm():
 
 class ConfirmExitFrom:
 	def __init__(self, login = None, redirect = None, error = None):
-		
+
 		self.arg = arg
