@@ -47,14 +47,14 @@ def set_auth_cookies(_user):
 		raise WrongUsernameError
 
 def check_auth_cookies(_cookies):
-	for cookie in cookies:
-		pass
 	try:
-		return users[_user]['auth'] == _cookies
+		_auth = _cookies["session"]
+		_user = _cookies["username"]
+		return users[_user]['auth'] == _auth
 	except KeyError:
 		raise WrongUsernameError
 
-def del_auth_cookies(_user, _cookies):
+def del_auth_cookies(_user):
 	try:
 		del users[_user]['auth']
 	except KeyError:

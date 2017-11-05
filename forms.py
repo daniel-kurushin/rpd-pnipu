@@ -53,5 +53,8 @@ class LoginForm():
 
 class ConfirmExitFrom:
 	def __init__(self, login = None, redirect = None, error = None):
+		pass
 
-		self.arg = arg
+class LostForm:
+	def __str__(self):
+		return "Not supported yet"
