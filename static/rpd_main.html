@@ -10,9 +10,11 @@
 		<p class="logo">АРМ</p>
 		<p class="uni">Пермский национальный исследовательский политехнический университет</p>
 		<span class="pnipu_logo"></span>
-		<form action="/rpd_main/" method="get">
+		<form class="search_frm" action="/rpd_main/" method="get">
 			<input class="search_text" name="text">
 			<input class="search_btn" type="submit" value="Найти">
+		</form>
+		<form class="edit_frm" action="/title/" method="get">
 			<input class="edit_btn" type="button" value="Редактировать">
 		</form>
 	</header>
@@ -249,21 +251,27 @@
 		</subject>
 	</subjectlist>
 	<aside>
-		<learn-form class="editor">
-			<span>Форма обучения</span>
-			<input id="очная" type="radio"><label for="очная">Очная</label>
-			<input id="заочная" type="radio"><label for="заочная">Заочная</label>
-		</learn-form>
-		<field-of-study class="editor">
-			<span>Направление обучения</span>
-			<input id="очная" type="radio"><label for="очная">Очная</label>
-			<input id="заочная" type="radio"><label for="заочная">Заочная</label>
-		</field-of-study>
-		<learning-profile class="editor">
-			<span>Профиль обучения</span>
-			<input id="очная" type="radio"><label for="очная">Очная</label>
-			<input id="заочная" type="radio"><label for="заочная">Заочная</label>
-		</learning-profile>
+		<form action="" method="get" id="Форма обучения">
+			<apply-filter class="editor">
+				<span>Фильтровать результаты</span>
+				<input class="button" type="submit" value="Применить фильтры">
+			</apply-filter>
+			<learn-form class="editor">
+				<span>Форма обучения</span>
+				<input name="learn-form" id="очная" type="radio"><label for="очная">Очная</label>
+				<input name="learn-form" id="заочная" type="radio"><label for="заочная">Заочная</label>
+			</learn-form>
+			<field-of-study class="editor" id="Направление обучения">
+				<span>Направление обучения</span>
+				<input name="field-of-study" id="очная" type="radio"><label for="очная">Очная</label>
+				<input name="field-of-study" id="заочная" type="radio"><label for="заочная">Заочная</label>
+			</field-of-study>
+			<learning-profile class="editor">
+				<span>Профиль обучения</span>
+				<input id="очная" type="radio"><label for="очная">Очная</label>
+				<input id="заочная" type="radio"><label for="заочная">Заочная</label>
+			</learning-profile>
+		</form>
 	</aside>
 	<footer>
 		<reset><a href="" title="">Сброс</a></reset>
