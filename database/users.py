@@ -38,7 +38,7 @@ def set_auth_cookies(_user):
 	_auth = calc_hash(str(randint(1000000, 100000000000)))
 	cookies = {
 		"session": _auth,
-		"username": urllib.parse.quote_plus(_user),
+		"username": _user,
 	}
 	try:
 		users[_user].update({'auth':_auth})

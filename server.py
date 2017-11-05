@@ -15,11 +15,22 @@ from forms import LoginForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
 	def _get_cookies(self):
-		return {}
+		rez = {}
+		try:
+			pairs = [_.split("=") for _ in self.headers['Cookie'].split('; ')]
+			for pair in pairs:
+				try:
+					key, value = pair
+					rez.update({key:urllib.parse.unquote_plus(value)})
+				except ValueError:
+					pass
+			return rez
+		except AttributeError:
+			return {}
 
 	def _send_cookies(self, cookies = {}):
 		for cookie in cookies.keys():
-			self.send_header('Set-Cookie', "%s=%s" % (cookie, cookies[cookie]))
+			self.send_header('Set-Cookie', "%s=%s" % (cookie, urllib.parse.quote_plus(cookies[cookie])))
 
 	def _load_file(self, name, context=None, content_type='text/html', cookies = {}):
 		self.send_response(200)
@@ -81,6 +92,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 
 	def do_GET(self):
 		cookies = self._get_cookies()
+		print(cookies)
 		if self.path.endswith('png'):
 			self._load_file(self.path.lstrip('/'), content_type='image/png')
 		elif self.path.endswith('jpg'):
