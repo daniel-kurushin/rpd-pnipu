@@ -36,10 +36,10 @@ def calc_hash(_str = ""):
 def set_auth_cookies(_user):
 	from random import randint
 	_auth = calc_hash(str(randint(1000000, 100000000000)))
-	cookies = [
-		"session=%s" % _auth,
-		"username=%s" % urllib.parse.quote_plus(_user),
-	]
+	cookies = {
+		"session": _auth,
+		"username": urllib.parse.quote_plus(_user),
+	}
 	try:
 		users[_user].update({'auth':_auth})
 		return cookies

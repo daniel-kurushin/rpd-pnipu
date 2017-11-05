@@ -14,11 +14,14 @@ from exceptions import LoginError, WrongPasswordError, WrongUsernameError
 from forms import LoginForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
-	def _send_cookies(self, cookies = []):
-		for cookie in cookies:
-			self.send_header('Set-Cookie', cookie)
+	def _get_cookies(self):
+		return {}
 
-	def _load_file(self, name, context=None, content_type='text/html', cookies = []):
+	def _send_cookies(self, cookies = {}):
+		for cookie in cookies.keys():
+			self.send_header('Set-Cookie', "%s=%s" % (cookie, cookies[cookie]))
+
+	def _load_file(self, name, context=None, content_type='text/html', cookies = {}):
 		self.send_response(200)
 		self._send_cookies(cookies)
 		self.send_header('Content-type', content_type)
@@ -34,7 +37,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				)
 		self.wfile.write(data)
 
-	def _redirect(self, url, cookies = []):
+	def _redirect(self, url, cookies = {}):
 		"""редирект клиента с опциональным выставлением куков"""
 		self.send_response(302)
 		self.send_header('Location', url)
@@ -42,7 +45,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		self.wfile.write(bytes('data', 'utf-8'))
 
-	def _load_str(self, data, cookies = []):
+	def _load_str(self, data, cookies = {}):
 		self.send_response(200)
 		self._send_cookies(cookies)
 		self.end_headers()
@@ -77,7 +80,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		)
 
 	def do_GET(self):
-		print(self.headers)
+		cookies = self._get_cookies()
 		if self.path.endswith('png'):
 			self._load_file(self.path.lstrip('/'), content_type='image/png')
 		elif self.path.endswith('jpg'):
@@ -96,7 +99,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		elif self.path.startswith('/rpd_main'):
 			self._load_file('static/rpd_main.html')
 		elif self.path.startswith('/logout'):
-			self._load_str('static/rpd_main.html', cookies = ['1=2','3=4'])
+			self._load_str('static/rpd_main.html', cookies = {'username':'','session':''})
 		else:
 			self._load_file('index.html')
 
