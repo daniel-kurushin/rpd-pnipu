@@ -10,6 +10,7 @@ from database.users import users
 from database.users import calc_hash
 
 from exceptions import LoginError
+from forms import LoginForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
 	def _load_file(self, name, context=None, content_type='text/html'):
@@ -39,7 +40,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 	def _load_str(self, data):
 		self.send_response(200)
 		self.end_headers()
-		self.wfile.write(bytes(data, 'utf-8'))
+		self.wfile.write(bytes(str(data), 'utf-8'))
 
 	def _to_json(self, data):
 		self.send_response(200)
@@ -52,12 +53,20 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			_user = data['login'][0]
 			_pass = data['pass'][0]
 			_hash = calc_hash("%s^%s" % (_user, _pass))
-			print(_hash)
+			print(_hash, users)
 			if users[_user]['hash'] != _hash:
-				raise LoginError('Incorrect password')
+				raise LoginError('Неверный пароль для порльзователя "%s"' % _user)
 		except KeyError:
-			raise LoginError('No such user "%s"' % _user)
+			raise LoginError('Нет пользователя с именем "%s"' % _user)
 		self._redirect('/rpd_main/?%s' % urllib.parse.urlencode({'login':_user}))
+
+	def show_login_form(self, redirect = None, error = None):
+		self._load_str(
+			LoginForm(
+				redirect = redirect,
+				error = error
+			)
+		)
 
 	def do_GET(self):
 		if self.path.endswith('png'):
@@ -72,7 +81,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				content_type = 'text/css'
 			self._load_file(self.path.lstrip('/'), content_type=content_type)
 		elif self.path.startswith('/auth'):
-			self._load_file('static/auth.html')
+			self.show_login_form()
 		elif self.path.startswith('/rpd_main'):
 			self._load_file('static/rpd_main.html')
 		else:
@@ -89,8 +98,8 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			try:
 				self._do_login(data)
 			except LoginError as e:
-				print(e)
-				self._load_file('static/auth.html')
+				self.show_login_form(e)
+
 
 if __name__ == '__main__':
 	server = HTTPServer(('0.0.0.0', 8000), RPDRequestHandler)
