@@ -9,7 +9,7 @@ from datetime import datetime
 from database.users import users
 from database.users import calc_hash
 
-from exceptions import LoginError
+from exceptions import LoginError, WrongPasswordError, WrongUsernameError
 from forms import LoginForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
@@ -48,21 +48,23 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		self.wfile.write(str.encode(json.dumps(data, indent = 4)))
 
-	def _do_login(self, data):
+	def _do_login(self, login = '', password = ''):
 		try:
-			_user = data['login'][0]
-			_pass = data['pass'][0]
+			_user = login
+			_pass = password
 			_hash = calc_hash("%s^%s" % (_user, _pass))
 			print(_hash, users)
 			if users[_user]['hash'] != _hash:
-				raise LoginError('Неверный пароль для порльзователя "%s"' % _user)
+				raise WrongPasswordError('Неверный пароль для порльзователя "%s"' % _user)
 		except KeyError:
-			raise LoginError('Нет пользователя с именем "%s"' % _user)
+			raise WrongUsernameError('Нет пользователя с именем "%s"' % _user)
 		self._redirect('/rpd_main/?%s' % urllib.parse.urlencode({'login':_user}))
 
-	def show_login_form(self, redirect = None, error = None):
+	def show_login_form(self, login = None, password = None, redirect = None, error = None):
 		self._load_str(
 			LoginForm(
+				login = login,
+				password = password,
 				redirect = redirect,
 				error = error
 			)
@@ -96,9 +98,11 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		print(self.path, data, file = sys.stderr)
 		if self.path.startswith('/auth'):
 			try:
-				self._do_login(data)
+				_user = data['login'][0]
+				_pass = data['pass'][0]
+				self._do_login(_user, _pass)
 			except LoginError as e:
-				self.show_login_form(e)
+				self.show_login_form(login = _user, password = _pass, error = e)
 
 
 if __name__ == '__main__':

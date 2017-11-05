@@ -37,6 +37,10 @@ login form input {
 	 margin-left: 10px;
 }
 
+login form .error {
+	background-color: coral;
+}
+
 login form .password {
 	padding-top: 10px;
 }
