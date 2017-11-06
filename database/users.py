@@ -50,12 +50,17 @@ def check_auth_cookies(_cookies):
 	try:
 		_auth = _cookies["session"]
 		_user = _cookies["username"]
-		return users[_user]['auth'] == _auth
+		return (users[_user]['auth'] == _auth), _user
 	except KeyError:
 		raise WrongUsernameError
 
 def del_auth_cookies(_user):
 	try:
 		del users[_user]['auth']
+		cookies = {
+			"session": '000',
+			"username": _user,
+		}
+		return cookies
 	except KeyError:
 		raise WrongUsernameError

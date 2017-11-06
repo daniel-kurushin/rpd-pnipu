@@ -108,7 +108,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 	def do_GET(self):
 		print(self.headers)
 		try:
-			is_auth = check_auth_cookies(self._get_cookies())
+			is_auth, _user = check_auth_cookies(self._get_cookies())
 			prev_path = self._get_referer()
 		except WrongUsernameError:
 			is_auth = 0
@@ -139,7 +139,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			self._load_file('static/rpd_main.html')
 		elif is_auth and self.path.startswith('/logout'):
 			if self.path.endswith('yes'):
-				self._redirect('/auth/', cookies = {'username':'','session':''})
+				self._redirect('/auth/', cookies = del_auth_cookies(_user))
 			else:
 				self.show_confirm_form(_forward = '/logout/yes', _return = prev_path)
 		else:
