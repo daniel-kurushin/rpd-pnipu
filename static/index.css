@@ -235,3 +235,40 @@ subject rpdlist {
 rpdlist label {
 	display: block;
 }
+
+confirm-exit {
+	display: block;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 50px;
+	border-left: 5px solid darkblue;
+	border-right: 5px solid darkblue;
+	width: 50%;
+	height: 20%;
+	padding: 30px;
+	position: absolute;
+	font-size: x-large;
+	font-family: arial;
+}
+
+confirm-exit p {
+	text-align: center;
+}
+
+confirm-exit p > * {
+	margin: 10px;
+	padding: 5px 15px 5px 15px;
+	border: 1px solid lightblue;
+}
+
+confirm-exit p > *:hover {
+	background-color: lightgray;
+}
+
+confirm-exit a {
+	text-decoration: none;
+	color: black;
+}
