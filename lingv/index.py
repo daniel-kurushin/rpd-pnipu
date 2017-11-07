@@ -1,16 +1,33 @@
-from rutermextract import TermExtractor as TE
 from pymystem3 import Mystem
 
 def index(text, mystem = Mystem()):
-	terms = TE()(text)
+	stop_words = [
+		"в",
+		"введение",
+		"глава",
+		"ее",
+		"и",
+		"из",
+		"институт",
+		"кафедра",
+		"на",
+		"основа",
+		"пример",
+		"средство",
+		"учение",
+		"факультет",
+	]
 	idx = {}
 
-	for term in terms:
-		for rez in mystem.analyze(str(term)):
-			try:
-				idx.update({rez['analysis'][0]['lex']:(term.count / len(terms))})
-			except:
-				pass
+	analysis = mystem.analyze(text)
+	for rez in analysis:
+		try:
+			word   = rez['analysis'][0]['lex']
+			weight = (1 / len(analysis))
+			weight = weight / 10 if word in stop_words else weight
+			idx.update({word:weight})
+		except:
+			pass
 
 	return idx
 

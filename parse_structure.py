@@ -4,68 +4,68 @@ import requests
 import sys
 import re
 
-# href = 'http://pstu.ru/title1/faculties/adf/'
-# soup = BS(requests.get(href).content)
-#
-# structure = {}
-#
-# for element in soup('li', 'active'):
-# 	if element.text.strip() == 'Факультеты':
-# 		break
-# element = element.nextSibling
-# while element.name != 'ul':
-# 	element = element.nextSibling
-# for child in element.children:
-# 	if child.name == 'li':
-# 		try:
-# 			href = "http://pstu.ru%s" % child.a['href']
-# 			_ = BS(requests.get(href).content)
-# 			content = _.find('div', 'content')
-# 		except KeyError:
-# 			content = soup.find('div', 'content')
-# 		faculty_data = {}
-# 		faculty_name = content.find('h1', itemprop='Name').text
-# 		faculty_container = content.find('div', 'fac')
-# 		dean_fio = faculty_container.find(itemprop="Fio").text
-# 		dean_deg = faculty_container.find(itemprop="Degree").text
-# 		structure.update({
-# 			faculty_name:{
-# 				"декан":{
-# 					"фио":dean_fio,
-# 					"ученая степень":dean_deg
-# 				},
-# 				"href":href,
-# 			}
-# 		})
-# dump(structure, open('/tmp/11.json', 'w'), indent = 4, ensure_ascii = 0)
-#
-# for faculty in structure.keys():
-# 	href = structure[faculty]['href']
-# 	content = BS(requests.get(href).content).find('div', 'content')
-# 	for element in content('h6'):
-# 		if element.text.strip().lower() == 'кафедры факультета':
-# 			break
-# 	while element.name != 'ul':
-# 		element = element.nextSibling
-# 	depts = element('a')
-# 	кафедры = {}
-# 	for dept in depts:
-# 		try:
-# 			dept_name, dept_shrt = re.findall(r'.+афедра (.+) \((.+)\)',dept.text)[0]
-# 		except IndexError:
-# 			print(dept)
-# 		dept_href = dept['href']
-# 		кафедры.update({
-# 			dept_shrt:{
-# 				"наименование": dept_name,
-# 				"href": dept_href
-# 			}
-# 		})
-#
-# 	structure[faculty].update({"кафедры":кафедры})
-#
-# dump(structure, open('/tmp/22.json', 'w'), indent = 4, ensure_ascii = 0)
-structure = load(open('/tmp/22.json'))
+href = 'http://pstu.ru/title1/faculties/adf/'
+soup = BS(requests.get(href).content)
+
+structure = {}
+
+for element in soup('li', 'active'):
+	if element.text.strip() == 'Факультеты':
+		break
+element = element.nextSibling
+while element.name != 'ul':
+	element = element.nextSibling
+for child in element.children:
+	if child.name == 'li':
+		try:
+			href = "http://pstu.ru%s" % child.a['href']
+			_ = BS(requests.get(href).content)
+			content = _.find('div', 'content')
+		except KeyError:
+			content = soup.find('div', 'content')
+		faculty_data = {}
+		faculty_name = content.find('h1', itemprop='Name').text
+		faculty_container = content.find('div', 'fac')
+		dean_fio = faculty_container.find(itemprop="Fio").text
+		dean_deg = faculty_container.find(itemprop="Degree").text
+		structure.update({
+			faculty_name:{
+				"декан":{
+					"фио":dean_fio,
+					"ученая степень":dean_deg
+				},
+				"href":href,
+			}
+		})
+dump(structure, open('/tmp/11.json', 'w'), indent = 4, ensure_ascii = 0)
+
+for faculty in structure.keys():
+	href = structure[faculty]['href']
+	content = BS(requests.get(href).content).find('div', 'content')
+	for element in content('h6'):
+		if element.text.strip().lower() == 'кафедры факультета':
+			break
+	while element.name != 'ul':
+		element = element.nextSibling
+	depts = element('a')
+	кафедры = {}
+	for dept in depts:
+		try:
+			dept_name, dept_shrt = re.findall(r'.+афедра (.+) \((.+)\)',dept.text)[0]
+		except IndexError:
+			print(dept)
+		dept_href = dept['href']
+		кафедры.update({
+			dept_shrt:{
+				"наименование": dept_name,
+				"href": dept_href
+			}
+		})
+
+	structure[faculty].update({"кафедры":кафедры})
+
+dump(structure, open('/tmp/22.json', 'w'), indent = 4, ensure_ascii = 0)
+# structure = load(open('/tmp/22.json'))
 for faculty in structure.keys():
 	for dept in structure[faculty]["кафедры"].keys():
 		try:
