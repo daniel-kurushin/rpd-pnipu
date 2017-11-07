@@ -72,3 +72,20 @@ class ConfirmExitFrom:
 class LostForm:
 	def __str__(self):
 		return "Not supported yet"
+
+class SearchForm:
+	def __init__(self, **argv):
+		self._user = argv['username']
+		self._query = argv['query']
+
+		self.template = 'static/rpd_main.html'
+
+		self.soup = BS(open(self.template).read())
+
+	def _insert_data(self):
+		pass
+
+	def __str__(self):
+		self._insert_data()
+		return self.soup.prettify()
+	

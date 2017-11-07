@@ -11,7 +11,7 @@ from database.users import calc_hash
 from database.users import set_auth_cookies, check_auth_cookies, del_auth_cookies
 
 from exceptions import LoginError, WrongPasswordError, WrongUsernameError
-from forms import LoginForm, LostForm, ConfirmExitFrom
+from forms import LoginForm, LostForm, ConfirmExitFrom, SearchForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
 	def _get_cookies(self):
@@ -34,6 +34,36 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			rez = self.headers['Referer'].split(_host)[1]
 		except (KeyError, AttributeError, IndexError):
 			rez = ''
+		return rez
+
+	def _get_params(self):
+		rez = {}
+		try:
+			rez.update({'is_auth':0})
+			rez = urllib.parse.parse_qs(self.path.split("?")[1])
+		except IndexError:
+			pass
+
+		if not rez['is_auth']:
+			try:
+				is_auth, _user = check_auth_cookies(self._get_cookies())
+				rez.update({
+					"is_auth": is_auth,
+					"username": _user
+				})
+			except WrongUsernameError:
+				rez.update({"is_auth": 0})
+		else:
+			pass
+			# TODO: убрать при релизе!
+
+		try:
+			prev_path = self._get_referer()
+			rez.update({'referer':prev_path})
+		except KeyError:
+			pass
+
+		print(rez)
 		return rez
 
 	def _send_cookies(self, cookies = {}):
@@ -108,18 +138,13 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			ConfirmExitFrom(_forward = _forward, _return = _return)
 		)
 
-	def do_GET(self):
-		print(self.headers)
-		try:
-			is_auth, _user = check_auth_cookies(self._get_cookies())
-			prev_path = self._get_referer()
-		except WrongUsernameError:
-			is_auth = 0
-			prev_path = ''
-		except KeyError:
-			prev_path = ''
+	def show_search_form(self, _user = None, _query = None):
+		self._load_str(
+			SearchForm(username = _user, query = _query)
+		)
 
-		print(prev_path)
+	def do_GET(self):
+		params = self._get_params()
 
 		if self.path.endswith('png'):
 			self._load_file(self.path.lstrip('/'), content_type='image/png')
@@ -138,13 +163,13 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			self.show_login_form()
 		elif self.path.startswith('/lost'):
 			self.show_lost_form()
-		elif is_auth and self.path.startswith('/rpd_main'):
-			self._load_file('static/rpd_main.html')
-		elif is_auth and self.path.startswith('/logout'):
+		elif params['is_auth'] and self.path.startswith('/rpd_main'):
+			self.show_search_form()
+		elif params['is_auth'] and self.path.startswith('/logout'):
 			if self.path.endswith('yes'):
-				self._redirect('/auth/', cookies = del_auth_cookies(_user))
+				self._redirect('/auth/', cookies = del_auth_cookies(params['username']))
 			else:
-				self.show_confirm_form(_forward = '/logout/yes', _return = prev_path)
+				self.show_confirm_form(_forward = '/logout/yes', _return = params['referer'])
 		else:
 			self._redirect('/auth/')
 
@@ -154,7 +179,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				int(self.headers.get('content-length'))
 			).decode('utf-8')
 		)
-		print(self.path, data, file = sys.stderr)
+		# print(self.path, data, file = sys.stderr)
 		if self.path.startswith('/auth'):
 			try:
 				_user = data['login'][0]
