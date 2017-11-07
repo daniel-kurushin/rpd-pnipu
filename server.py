@@ -29,8 +29,11 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			return {}
 
 	def _get_referer(self):
-		_host = self.headers['Host']
-		rez = self.headers['Referer'].split(_host)[1]
+		try:
+			_host = self.headers['Host']
+			rez = self.headers['Referer'].split(_host)[1]
+		except (KeyError, AttributeError, IndexError):
+			rez = ''
 		return rez
 
 	def _send_cookies(self, cookies = {}):
