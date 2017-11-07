@@ -16,6 +16,7 @@ class LoginForm():
 
 	def __str__(self):
 		self._insert_data()
+		# TODO: возможно надо сделать иерархию, этот вызов у всех.
 		if not self.error and not self.redirect:
 			return self.soup.prettify()
 		elif self.error:
@@ -50,8 +51,8 @@ class LoginForm():
 		input_to_change_class['title'] = str(self.error)
 		return self.soup.prettify()
 
-
 class ConfirmExitFrom:
+	"""Форма подтверждения выхода - тест работы с реферером"""
 	def __init__(self, _forward = None, _return = None):
 		self._forward = _forward
 		self._return = _return
@@ -70,10 +71,12 @@ class ConfirmExitFrom:
 		return self.soup.prettify()
 
 class LostForm:
+	"""Форма потерял пароль"""
 	def __str__(self):
 		return "Not supported yet"
 
 class SearchForm:
+	"""Форма поиска - основной экран системы"""
 	def __init__(self, **argv):
 		self._user = argv['username']
 		self._query = argv['query']
@@ -88,4 +91,3 @@ class SearchForm:
 	def __str__(self):
 		self._insert_data()
 		return self.soup.prettify()
-	
