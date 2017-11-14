@@ -11,7 +11,11 @@ from database.users import calc_hash
 from database.users import set_auth_cookies, check_auth_cookies, del_auth_cookies
 
 from exceptions import LoginError, WrongPasswordError, WrongUsernameError
-from forms import LoginForm, LostForm, ConfirmExitFrom, SearchForm
+
+from forms.confirmexitform import ConfirmExitFrom
+from forms.loginform import LoginForm
+from forms.lostform import LostForm
+from forms.searchform import SearchForm
 
 class RPDRequestHandler(BaseHTTPRequestHandler):
 	def _get_cookies(self):
@@ -44,7 +48,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		except IndexError:
 			pass
 
-		if not rez['is_auth']:
+		if 'is_auth' not in rez.keys():
 			try:
 				is_auth, _user = check_auth_cookies(self._get_cookies())
 				rez.update({
@@ -138,9 +142,9 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			ConfirmExitFrom(_forward = _forward, _return = _return)
 		)
 
-	def show_search_form(self, _user = None, _query = None):
+	def show_search_form(self, params = {}):
 		self._load_str(
-			SearchForm(username = _user, query = _query)
+			SearchForm(params)
 		)
 
 	def do_GET(self):
@@ -164,7 +168,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		elif self.path.startswith('/lost'):
 			self.show_lost_form()
 		elif params['is_auth'] and self.path.startswith('/rpd_main'):
-			self.show_search_form()
+			self.show_search_form(params)
 		elif params['is_auth'] and self.path.startswith('/logout'):
 			if self.path.endswith('yes'):
 				self._redirect('/auth/', cookies = del_auth_cookies(params['username']))

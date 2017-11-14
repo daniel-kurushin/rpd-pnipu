@@ -16,26 +16,37 @@ class SearchForm:
 
 		subjectlist = load(open('database/subjects.json'))
 		subjectindex = load(open('database/subject-index.json'))
+		structure = load(open('database/structure.json'))
 
-		self._join(subjectlist, subjectindex)
+		self._join_(subjectlist, subjectindex, structure)
 
 		self.soup = BS(open(self.template).read())
 
-	def _join(self, _subjectlist = {}, _subjectindex = {}):
+	def _join_(self, _subjectlist = {}, _subjectindex = {}, structure = {}):
 		rez = {}
-		for faculty in subjectlist.keys():
-			for specialisation in subjectlist[faculty].keys():
-				for subject in subjectlist[faculty][specialisation].keys():
-					rez.update({
-						subject:{
-
+		for faculty in _subjectlist.keys():
+			for specialisation in _subjectlist[faculty].keys():
+				for subject in _subjectlist[faculty][specialisation].keys():
+					_ = _subjectlist[faculty][specialisation][subject]
+					_.update({"факультет":
+						{
+							"полное наименование"      : faculty,
+							"сокращенное наименование" : structure[faculty]['сокращенное наименование']
 						}
 					})
-		return rez
+					_.update({"специализация":specialisation})
+					_.update({"индекс":_subjectindex[subject]})
+					rez.update({
+						subject:_
+					})
 
-	def _insert_data(self, subjectlist):
+		self.data = rez
+
+	def _insert_data(self):
 		self.soup.find('input', 'search_text')['value'] = self._query
-
+		from json import dumps
+		print(dumps(self.data, indent = 4, ensure_ascii = 0))
+		exit(0)
 		to_insert = self.soup.find('subjectlist')
 		n = 0
 		for faculty in subjectlist.keys():
@@ -77,8 +88,6 @@ class SearchForm:
 
 	def __str__(self):
 		if self._query:
-			_subjectlist = self._process_query()
-		else:
-			_subjectlist = self.subjectlist
-		self._insert_data(_subjectlist)
+			self._process_query()
+		self._insert_data()
 		return self.soup.prettify()

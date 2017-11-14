@@ -82,6 +82,7 @@ subjectlist {
 	right: 0px;
 	width: 80%;
 	overflow-y: scroll;
+	font-family: arial;
 }
 
 aside {
@@ -227,14 +228,34 @@ subjectlist subject {
 	border-bottom: 1px solid lightblue;
 }
 
-subject rpdlist {
-	display: block;
-	padding-left: 10px;
+subject > * {
+	display: inline-block;;
+	overflow: hidden;
 }
 
-rpdlist label {
-	display: block;
+subject > name {
+	width: 50%;
 }
+
+subject > department {
+	width: 10%;
+}
+
+subject > hours {
+	width: 10%;
+}
+
+subject > control {
+	width: 20%;
+}
+/*subject rpdlist {
+	display: block;
+	padding-left: 10px;
+}*/
+
+/*rpdlist label {
+	display: block;
+}*/
 
 confirm-exit {
 	display: block;
