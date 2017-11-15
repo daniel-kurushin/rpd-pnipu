@@ -44,25 +44,29 @@ class SearchForm:
 
 	def _insert_data(self):
 		self.soup.find('input', 'search_text')['value'] = self._query
-		from json import dumps
-		print(dumps(self.data, indent = 4, ensure_ascii = 0))
-		exit(0)
+		# from json import dumps
+		# print(dumps(self.data, indent = 4, ensure_ascii = 0))
+		# exit(0)
 		to_insert = self.soup.find('subjectlist')
 		n = 0
-		for faculty in subjectlist.keys():
-			for specialisation in subjectlist[faculty].keys():
-				for subject in subjectlist[faculty][specialisation].keys():
-					if n < 40:
-						n += 1
-						subject_tag = BS('<subject><name></name><direction></direction><department></department><control></control></subject>').subject
-						subject_tag.find('name'      ).insert(0,subject)
-						# subject_tag.find('direction' ).insert(0,subjectlist[faculty][specialisation][subject]["контроль"])
-						subject_tag.find('department').insert(0,subjectlist[faculty][specialisation][subject]["контроль"])
-						# subject_tag.find('control'   ).insert(0,subjectlist[faculty][specialisation][subject]["трудоемкость"])
-						subject_tag.find('hours'     ).insert(0,subjectlist[faculty][specialisation][subject]["кафедра"])
-					else:
-						pass
-					to_insert.insert(0, subject_tag)
+
+		for subject in self.data.keys():
+			if n < 40:
+				n += 1
+				subject_tag = BS('<subject>\
+									<name></name>\
+									<faculty></faculty>\
+									<department></department>\
+									<speciality></speciality>\
+									<hours></hours>\
+								  </subject>').subject
+				subject_tag.find('name'      ).insert(0,subject)
+				subject_tag.find('faculty'   ).insert(0,self.data[subject]['факультет']['сокращенное наименование'])
+				subject_tag.find('department').insert(0,self.data[subject]['кафедра'])
+				subject_tag.find('speciality').insert(0,self.data[subject]['специализация'])
+				subject_tag.find('hours'     ).insert(0,self.data[subject]['трудоемкость'])
+
+				to_insert.insert(0, subject_tag)
 
 	def _process_query(self):
 		import lingv.index as lingv
