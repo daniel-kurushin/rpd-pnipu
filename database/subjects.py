@@ -2,7 +2,18 @@ from json import load
 # from lingv.index import index
 from pymystem3 import Mystem
 
-def index(text, mystem = Mystem()):
+def _to_set(mystem_results):
+	rez = []
+	for analysis in mystem_results:
+		try:
+			rez += [analysis['analysis'][0]['lex']]
+		except IndexError:
+			pass
+		except KeyError:
+			pass
+	return set(rez)
+
+def index(text, title, mystem = Mystem()):
 	stop_words = [
 		"в",
 		"введение",
@@ -22,11 +33,12 @@ def index(text, mystem = Mystem()):
 	idx = {}
 
 	analysis = mystem.analyze(text)
+	title_words = _to_set(mystem.analyze(title))
 	for rez in analysis:
 		try:
 			word   = rez['analysis'][0]['lex']
 			weight = (1 / len(analysis))
-			weight = weight / 10 if word in stop_words else weight
+			weight = weight / 10 if word in stop_words else weight * 2 if word in title_words else weight
 			idx.update({word:weight})
 		except:
 			pass
@@ -60,7 +72,7 @@ def index_subjects():
 					short = subjects[faculty][specialisation][subject]['кафедра'].replace('и','')
 					department, head = find_department(short)
 					text = "%s %s %s %s %s %s" % (faculty, specialisation, subject, department, short, head)
-					idx = index(text, mystem)
+					idx = index(text, subject, mystem)
 					rez.update({subject: idx})
 				except Exception as e:
 					print(e, faculty, specialisation, subject, subjects[faculty][specialisation][subject])
@@ -68,7 +80,8 @@ def index_subjects():
 
 	return rez
 
-subject_index = index_subjects()
-import json
-print(json.dumps(subject_index, indent = 4, ensure_ascii = 0))
-json.dump(subject_index, open('/tmp/44.json', 'w'), indent = 4, ensure_ascii = 0)
+if __name__ == '__main__':
+	subject_index = index_subjects()
+	import json
+	print(json.dumps(subject_index, indent = 4, ensure_ascii = 0))
+	json.dump(subject_index, open('/tmp/44.json', 'w'), indent = 4, ensure_ascii = 0)

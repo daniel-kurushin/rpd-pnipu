@@ -58,7 +58,7 @@ class SearchForm:
 		to_insert = self.soup.find('subjectlist')
 		n = 0
 
-		sorted_data = sorted(self.data.items(), key = relsort, reverse = True)
+		sorted_data = sorted(self.data.items(), key = relsort, reverse = False)
 
 		for subject, sbjdic in sorted_data:
 			if n < 40:
