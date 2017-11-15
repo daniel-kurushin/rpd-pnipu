@@ -53,7 +53,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 				is_auth, _user = check_auth_cookies(self._get_cookies())
 				rez.update({
 					"is_auth": is_auth,
-					"username": _user
+					"login": _user
 				})
 			except WrongUsernameError:
 				rez.update({"is_auth": 0})
