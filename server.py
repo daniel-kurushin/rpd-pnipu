@@ -44,11 +44,11 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 		rez = {}
 		try:
 			rez.update({'is_auth':0})
-			rez = urllib.parse.parse_qs(self.path.split("?")[1])
+			rez.update(urllib.parse.parse_qs(self.path.split("?")[1]))
 		except IndexError:
 			pass
 
-		if 'is_auth' not in rez.keys():
+		if not rez['is_auth']:
 			try:
 				is_auth, _user = check_auth_cookies(self._get_cookies())
 				rez.update({
@@ -115,7 +115,6 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			_user = login
 			_pass = password
 			_hash = calc_hash("%s^%s" % (_user, _pass))
-			print(_hash, users)
 			if users[_user]['hash'] != _hash:
 				raise WrongPasswordError('Неверный пароль для пользователя "%s"' % _user)
 		except KeyError:
@@ -171,7 +170,7 @@ class RPDRequestHandler(BaseHTTPRequestHandler):
 			self.show_search_form(params)
 		elif params['is_auth'] and self.path.startswith('/logout'):
 			if self.path.endswith('yes'):
-				self._redirect('/auth/', cookies = del_auth_cookies(params['username']))
+				self._redirect('/auth/', cookies = del_auth_cookies(params['login']))
 			else:
 				self.show_confirm_form(_forward = '/logout/yes', _return = params['referer'])
 		else:
