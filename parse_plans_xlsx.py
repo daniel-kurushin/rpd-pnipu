@@ -4,26 +4,43 @@ import requests
 import sys
 import re
 
-href = 'http://pstu.ru/activity/educational/fgosvpo/uchplans/'
-try:
-	_ = open("/tmp/in").read()
-except FileNotFoundError:
-	_ = requests.get(href).content
-	open("/tmp/in", "wb").write(_)
 
-soup = BS(_)
+def clean(_str):
+	return re.sub(r'[*\n\t]', '', _str)
 
+def get_soup():
+	href = 'http://pstu.ru/activity/educational/fgosvpo/uchplans/'
+	try:
+		_ = open("/tmp/in").read()
+	except FileNotFoundError:
+		_ = requests.get(href).content
+		open("/tmp/in", "wb").write(_)
+
+	return BS(_)
+
+table = get_soup().find('div', 'content').find('table')
+
+faculty = None
 structure = {}
+headers = []
 
-content = soup.find('div', 'content')
-table = content.find('table')
-n = 0
 for tr in table('tr'):
-	print(tr.text)
-	n += 1
-	# if re.match('\w{2,5}', tr.text):
-
-exit(0)
+	text = clean(tr.text)
+	if re.match('^\w{2,5}$', text):
+		faculty = text
+	else:
+		if faculty and headers:
+			n = 0
+			for td in tr('td'):
+				print(headers[n], td.text)
+				n += 1
+			exit(0)
+		else:
+			print(">>>", clean(tr.text))
+			for td in tr('th'):
+				headers += [clean(td.text)]
+			print(headers)
+			exit(0)
 
 for element in soup('li', 'active'):
 	if element.text.strip() == 'Факультеты':
