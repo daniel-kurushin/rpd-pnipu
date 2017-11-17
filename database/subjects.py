@@ -35,6 +35,7 @@ def index(text, title, mystem = Mystem()):
 	analysis = mystem.analyze(text)
 	title_words = _to_set(mystem.analyze(title))
 	for rez in analysis:
+		word = ""
 		try:
 			word   = rez['analysis'][0]['lex']
 		except IndexError as e:
