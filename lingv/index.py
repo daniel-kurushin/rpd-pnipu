@@ -14,8 +14,6 @@ def index(text, mystem = Mystem()):
 		"основа",
 		"пример",
 		"средство",
-		"теория",
-		"технология",
 		"учение",
 		"факультет",
 	]
@@ -25,11 +23,17 @@ def index(text, mystem = Mystem()):
 	for rez in analysis:
 		try:
 			word   = rez['analysis'][0]['lex']
+		except IndexError as e:
+			try:
+				word = rez['text'].strip().lower()
+			except KeyError:
+				pass
+		except KeyError:
+			pass
+		if word != "":
 			weight = (1 / len(analysis))
 			weight = weight / 10 if word in stop_words else weight
 			idx.update({word:weight})
-		except:
-			pass
 
 	return idx
 
