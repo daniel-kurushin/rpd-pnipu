@@ -149,6 +149,7 @@ for tr in table('tr'):
 		else:
 			for td in tr('th'):
 				headers += [clean(td.text)]
+structure.update({faculty:faculty_data})
 
 for faculty in structure.keys():
 	for plan in structure[faculty]:
