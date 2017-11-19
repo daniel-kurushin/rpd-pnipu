@@ -96,17 +96,10 @@ for faculty in structure.keys():
 		vyb_sh = wb.sheet_by_name("Дисциплины по выбору")
 		n = 0
 		for param in params:
-			try:
-				plan_structure.update({param:values[n]})
-			except Exception as e:
-				print(
-					param, values, plan, _, e
-				)
-				exit(0)
+			plan_structure.update({param:values[n]})
 			n += 1
 
 		plan["Учебный план"] = plan_structure
-
 
 print(dumps(structure, indent = 4, ensure_ascii = 0))
 exit(0)
