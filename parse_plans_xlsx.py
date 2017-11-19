@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup as BS
 from json import dump, dumps, load
+from xlrd import open_workbook
 import requests
 import sys
 import re
 
 
 def clean(_str):
-	return re.sub(r'[*\n\t]', '', _str)
+	return re.sub(r'[*:\n\r\xa0\t]', '', _str)
 
 def get_soup():
 	href = 'http://pstu.ru/activity/educational/fgosvpo/uchplans/'
@@ -18,6 +19,40 @@ def get_soup():
 
 	return BS(_)
 
+def get_xlsx(href):
+	if not href.startswith('http://pstu.ru'):
+		href = "http://pstu.ru" + href
+	fname = "/tmp/%s" % href.split('/')[-1]
+	try:
+		_ = open(fname)
+	except FileNotFoundError:
+		try:
+			_ = requests.get(href).content
+			open(fname, "wb").write(_)
+		except:
+			print(href)
+			exit(0)
+	return fname
+
+def get_work_plan(wb):
+	params = []
+	values = []
+	ws = wb.sheet_by_index(0)
+	for i in range(ws.nrows):
+		for j in range(ws.ncols):
+			if re.match(r"([^\n]+\n){6,}", ws.cell(i,j).value, re.MULTILINE):
+				params = [ clean(_) for _ in ws.cell(i,j).value.split("\n") ]
+				for k in range(j+1,ws.ncols):
+					if re.match(r"([^\n]+\n){6,}", ws.cell(i,k).value, re.MULTILINE):
+						values = [ clean(_) for _ in ws.cell(i,k).value.split("\n") ]
+						break
+				if values: break
+		if params+values: break
+
+	assert len(params) > 1 and len(values) > 1
+
+	return params, values
+
 table = get_soup().find('div', 'content').find('table')
 
 faculty = None
@@ -27,20 +62,54 @@ headers = []
 for tr in table('tr'):
 	text = clean(tr.text)
 	if re.match('^\w{2,5}$', text):
+		try:
+			structure.update({faculty:faculty_data})
+		except:
+			pass
 		faculty = text
+		faculty_data = []
 	else:
 		if faculty and headers:
 			n = 0
+			item = {}
 			for td in tr('td'):
-				print(headers[n], td.text)
+				a = td.find('a')
+				if a:
+					item.update({headers[n]: a["href"]})
+				else:
+					item.update({headers[n]: clean(td.text)})
 				n += 1
-			exit(0)
+			faculty_data += [item]
 		else:
-			print(">>>", clean(tr.text))
 			for td in tr('th'):
 				headers += [clean(td.text)]
-			print(headers)
-			exit(0)
+
+for faculty in structure.keys():
+	for plan in structure[faculty]:
+		plan_structure = {}
+		wb = open_workbook(get_xlsx(plan["Учебный план"]))
+		params, values = get_work_plan(wb)
+		try:
+			dis_sh = wb.sheet_by_name("Дисциплины")
+		except:
+			dis_sh = wb.sheet_by_name("План")
+		vyb_sh = wb.sheet_by_name("Дисциплины по выбору")
+		n = 0
+		for param in params:
+			try:
+				plan_structure.update({param:values[n]})
+			except Exception as e:
+				print(
+					param, values, plan, _, e
+				)
+				exit(0)
+			n += 1
+
+		plan["Учебный план"] = plan_structure
+
+
+print(dumps(structure, indent = 4, ensure_ascii = 0))
+exit(0)
 
 for element in soup('li', 'active'):
 	if element.text.strip() == 'Факультеты':
