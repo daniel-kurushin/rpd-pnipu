@@ -64,13 +64,59 @@ def get_plan_structure(wb):
 	return rez
 
 def get_disc_structure(wb):
-	try:
-		dis_sh = wb.sheet_by_name("Дисциплины")
-	except:
-		dis_sh = wb.sheet_by_name("План")
-	vyb_sh = wb.sheet_by_name("Дисциплины по выбору")
 
-	exit(0)
+	def _collect_sheet(ws):
+		rez = {}
+		maxrow = 0
+		for i in range(ws.nrows):
+			for j in range(ws.ncols):
+				if ws.cell(i,j).value in params.keys():
+					params.update({ws.cell(i,j).value:j})
+					maxrow = i if i > maxrow else maxrow
+
+
+		for subject, row in [ (ws.cell(i, params["Наименование дисциплины"]).value, i) for i in range(maxrow, ws.nrows) ]:
+			if subject:
+				subject_data = {}
+				for param in set(params.keys()) - {"Наименование дисциплины"}:
+					col = params[param]
+					_ = ws.cell(row, col).value
+					if _: subject_data.update({param:_})
+				rez.update({subject:subject_data})
+
+		return rez
+
+	# Вид контроля по семестрам
+	# Общая трудоемкость по видам учебной работы, АЧ
+	rez = {}
+	params = {
+		"Кафедра":0,
+		"Индекс дисциплины":0,
+		"Наименование дисциплины":0,
+		"Экзамен":0,
+		"Диф. зачет":0,
+		"Зачет":0,
+		"Курсовой проект":0,
+		"Курсовая работа":0,
+		"Аудиторные":0,
+		"СРС":0,
+		"Лекции":0,
+		"Лабораторные":0,
+		"Практические":0,
+		"КСР":0,
+		"Общая трудоемкость, ЗЕ":0,
+		"Код компетенции":0
+	}
+	try:
+		ws = wb.sheet_by_name("Дисциплины")
+	except:
+		ws = wb.sheet_by_name("План")
+
+	rez.update(_collect_sheet(ws))
+	ws = wb.sheet_by_name("Дисциплины по выбору")
+	rez.update(_collect_sheet(ws))
+
+	return rez
 
 
 table = get_soup().find('div', 'content').find('table')
@@ -108,124 +154,8 @@ for faculty in structure.keys():
 	for plan in structure[faculty]:
 		wb = open_workbook(get_xlsx(plan["Учебный план"]))
 		plan["Учебный план"] = get_plan_structure(wb)
-		disc = get_disc_structure(wb)
+		plan["Учебный план"].update({"Дисциплины":get_disc_structure(wb)})
 
 
 print(dumps(structure, indent = 4, ensure_ascii = 0))
 exit(0)
-
-for element in soup('li', 'active'):
-	if element.text.strip() == 'Факультеты':
-		break
-element = element.nextSibling
-while element.name != 'ul':
-	element = element.nextSibling
-for child in element.children:
-	if child.name == 'li':
-		try:
-			href = "http://pstu.ru%s" % child.a['href']
-			_ = BS(requests.get(href).content)
-			content = _.find('div', 'content')
-		except KeyError:
-			content = soup.find('div', 'content')
-		faculty_data = {}
-		faculty_name = content.find('h1', itemprop='Name').text
-		faculty_container = content.find('div', 'fac')
-		dean_fio = faculty_container.find(itemprop="Fio").text
-		dean_deg = faculty_container.find(itemprop="Degree").text
-		structure.update({
-			faculty_name:{
-				"декан":{
-					"фио":dean_fio,
-					"ученая степень":dean_deg
-				},
-				"href":href,
-			}
-		})
-dump(structure, open('/tmp/11.json', 'w'), indent = 4, ensure_ascii = 0)
-
-for faculty in structure.keys():
-	href = structure[faculty]['href']
-	content = BS(requests.get(href).content).find('div', 'content')
-	for element in content('h6'):
-		if element.text.strip().lower() == 'кафедры факультета':
-			break
-	while element.name != 'ul':
-		element = element.nextSibling
-	depts = element('a')
-	кафедры = {}
-	for dept in depts:
-		try:
-			dept_name, dept_shrt = re.findall(r'.+афедра (.+) \((.+)\)',dept.text)[0]
-		except IndexError:
-			print(dept)
-		dept_href = dept['href']
-		кафедры.update({
-			dept_shrt:{
-				"наименование": dept_name,
-				"href": dept_href
-			}
-		})
-
-	structure[faculty].update({"кафедры":кафедры})
-
-dump(structure, open('/tmp/22.json', 'w'), indent = 4, ensure_ascii = 0)
-# structure = load(open('/tmp/22.json'))
-for faculty in structure.keys():
-	for dept in structure[faculty]["кафедры"].keys():
-		try:
-			href = "http://pstu.ru%s" % structure[faculty]["кафедры"][dept]['href']
-			content = BS(requests.get(href).content).find('div', 'content')
-
-			head_fio = content.find(itemprop = "Fio").text
-			head_deg = content.find(itemprop = "Degree").text
-
-			structure[faculty]["кафедры"][dept].update({
-				"заведующий кафедрой": {
-					"фио":head_fio,
-					"ученая степень":head_deg
-				}
-			})
-
-			for link in content('a'):
-				if link.text.strip(" \n").lower() == "сотрудники кафедры":
-					href = "http://pstu.ru%s" % link['href']
-					break
-			content = BS(requests.get(href).content).find('div', 'content')
-			сотрудники = {}
-			for person in content('a'):
-				person_fio = person.text.strip(" \n")
-				try:
-					person_short = "%s %s.%s." % re.findall("(\w+)\s(\w)\w+\s(\w)\w+", person_fio)[0]
-				except IndexError:
-					print (href, person_fio)
-				person_pos = person.parent.text.split(person_fio)[1].strip(" ,")
-				try:
-					person_deg, person_pos = [_.strip() for _ in person_pos.split(",")]
-				except ValueError:
-					person_deg = ""
-				сотрудники.update({
-					person_short: {
-						"фио":person_fio,
-						"ученая степень":person_deg,
-						"должность":person_pos,
-					}
-				})
-			structure[faculty]["кафедры"][dept].update({
-				"сотрудники": сотрудники
-			})
-		except KeyError:
-			pass
-
-
-# print(dumps(structure, indent = 4, ensure_ascii = 0))
-dump(structure, open('/tmp/33.json', 'w'), indent = 4, ensure_ascii = 0)
-		# for dept_container in faculty_container('h6'):
-		# 	if dept_container.text == 'Кафедры факультета':
-		# 		break
-		# while dept_container.name != 'ul':
-		# 	dept_container = dept_container.nextSibling
-		#
-		# for department in dept_container('li'):
-		# 	department_name = department.text
-		# 	href = "http://pstu.ru/%s" % department.a['href']
