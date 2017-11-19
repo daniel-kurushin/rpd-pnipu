@@ -53,6 +53,26 @@ def get_work_plan(wb):
 
 	return params, values
 
+def get_plan_structure(wb):
+	n = 0
+	rez = {}
+	params, values = get_work_plan(wb)
+	for param in params:
+		rez.update({param:values[n]})
+		n += 1
+
+	return rez
+
+def get_disc_structure(wb):
+	try:
+		dis_sh = wb.sheet_by_name("Дисциплины")
+	except:
+		dis_sh = wb.sheet_by_name("План")
+	vyb_sh = wb.sheet_by_name("Дисциплины по выбору")
+
+	exit(0)
+
+
 table = get_soup().find('div', 'content').find('table')
 
 faculty = None
@@ -86,20 +106,10 @@ for tr in table('tr'):
 
 for faculty in structure.keys():
 	for plan in structure[faculty]:
-		plan_structure = {}
 		wb = open_workbook(get_xlsx(plan["Учебный план"]))
-		params, values = get_work_plan(wb)
-		try:
-			dis_sh = wb.sheet_by_name("Дисциплины")
-		except:
-			dis_sh = wb.sheet_by_name("План")
-		vyb_sh = wb.sheet_by_name("Дисциплины по выбору")
-		n = 0
-		for param in params:
-			plan_structure.update({param:values[n]})
-			n += 1
+		plan["Учебный план"] = get_plan_structure(wb)
+		disc = get_disc_structure(wb)
 
-		plan["Учебный план"] = plan_structure
 
 print(dumps(structure, indent = 4, ensure_ascii = 0))
 exit(0)
