@@ -68,12 +68,11 @@ def get_disc_structure(wb):
 	def _collect_sheet(ws):
 		rez = {}
 		maxrow = 0
-		for i in range(ws.nrows):
-			for j in range(ws.ncols):
+		for j in range(ws.ncols-1,0,-1):
+			for i in range(min(ws.nrows, 16)):
 				if ws.cell(i,j).value in params.keys():
 					params.update({ws.cell(i,j).value:j})
 					maxrow = i if i > maxrow else maxrow
-
 
 		for subject, row in [ (ws.cell(i, params["Наименование дисциплины"]).value, i) for i in range(maxrow, ws.nrows) ]:
 			if subject:
@@ -98,6 +97,7 @@ def get_disc_structure(wb):
 		"Зачет":0,
 		"Курсовой проект":0,
 		"Курсовая работа":0,
+		"Всего":0,
 		"Аудиторные":0,
 		"СРС":0,
 		"Лекции":0,
@@ -119,44 +119,47 @@ def get_disc_structure(wb):
 	return rez
 
 
-table = get_soup().find('div', 'content').find('table')
+def main():
+	table = get_soup().find('div', 'content').find('table')
 
-faculty = None
-structure = {}
-headers = []
+	faculty = None
+	structure = {}
+	headers = []
 
-for tr in table('tr'):
-	text = clean(tr.text)
-	if re.match('^\w{2,5}$', text):
-		try:
-			structure.update({faculty:faculty_data})
-		except:
-			pass
-		faculty = text
-		faculty_data = []
-	else:
-		if faculty and headers:
-			n = 0
-			item = {}
-			for td in tr('td'):
-				a = td.find('a')
-				if a:
-					item.update({headers[n]: a["href"]})
-				else:
-					item.update({headers[n]: clean(td.text)})
-				n += 1
-			faculty_data += [item]
+	for tr in table('tr'):
+		text = clean(tr.text)
+		if re.match('^\w{2,5}$', text):
+			try:
+				structure.update({faculty:faculty_data})
+			except:
+				pass
+			faculty = text
+			faculty_data = []
 		else:
-			for td in tr('th'):
-				headers += [clean(td.text)]
-structure.update({faculty:faculty_data})
+			if faculty and headers:
+				n = 0
+				item = {}
+				for td in tr('td'):
+					a = td.find('a')
+					if a:
+						item.update({headers[n]: a["href"]})
+					else:
+						item.update({headers[n]: clean(td.text)})
+					n += 1
+				faculty_data += [item]
+			else:
+				for td in tr('th'):
+					headers += [clean(td.text)]
+	structure.update({faculty:faculty_data})
 
-for faculty in structure.keys():
-	for plan in structure[faculty]:
-		wb = open_workbook(get_xlsx(plan["Учебный план"]))
-		plan["Учебный план"] = get_plan_structure(wb)
-		plan["Учебный план"].update({"Дисциплины":get_disc_structure(wb)})
+	for faculty in structure.keys():
+		for plan in structure[faculty]:
+			wb = open_workbook(get_xlsx(plan["Учебный план"]))
+			plan["Учебный план"] = get_plan_structure(wb)
+			plan["Учебный план"].update({"Дисциплины":get_disc_structure(wb)})
 
 
-print(dumps(structure, indent = 4, ensure_ascii = 0))
-exit(0)
+	print(dumps(structure, indent = 4, ensure_ascii = 0))
+
+if __name__ == '__main__':
+	main()
