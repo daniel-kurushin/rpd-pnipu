@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'a_AssuanNr';
+  font-style: normal;
+  font-weight: 400;
+  src: local('a_AssuanNr'), local('a_AssuanNr-Medium'),
+  url(/font/a_assuannr.woff) format('woff'),
+  url(/font/a_assuannr.ttf) format('truetype');
+}
+
+
+
+.logo{
+  color:white;
+  width:300px;
+  height:242px;
+  background: #5990c9;
+  border-radius: 20%/100%;
+  .text{
+    font-family: 'a_AssuanNr', arial;
+    font-size:46.5px;
+    margin-top: 53px;
+    line-height: 46px;
+    padding: 4px;
+    margin-left: 6px;
+  }
+  .ellipse{
+    padding: 0;
+    margin-right: 10px;
+    font-size: smaller;
+    height: 70px;
+    width: 70px;
+    background: #fff;
+    border-radius: 100px;
+    margin-top: 15px;
+    float: right;
+    color: #000;
+    &-text{
+      font-family: 'a_AssuanNr', arial;
+      transform: scaleY(0.8);
+      font-size: 33px;
+      margin-top: 12px;
+      text-align: center;
+      color:#5990c9;
+    }
+  }
+}

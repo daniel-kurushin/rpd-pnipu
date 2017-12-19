@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rpm</title>
+
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <welcome>
+
+        <login class="col-xs-6">
+            <form action="/auth" method="post">
+                <input type="text" class="form-control input-lg" placeholder="Логин" name="login">
+                <input type="password" class="form-control input-lg" placeholder="Пароль" name="pass">
+                <input type="submit" class="btn btn-primary btn-lg" value="Войти">
+            </form>
+        </login>
+        <div class="logo col-xs-6">
+            <div class="text col-xs-8">
+                Рабочая
+                Программа
+                Дисциплины
+            </div>
+            <div class="ellipse col-xs-3">
+                <div class="ellipse-text">
+                    АРМ
+                </div>
+            </div>
+        </div>
+    </welcome>
+</div>
+</body>
+</html>

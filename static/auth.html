@@ -1,19 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta charset="utf-8">
-	<title>rpd</title>
-	<link rel="stylesheet" type="text/css" href="/static/index.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rpm</title>
+
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<login>
-		<form action="/auth" method="post">
-			<p class="username">Имя пользователя:<input type="text" name="login"></p>
-			<p class="password">Пароль<input type="password" name="pass"></p>
-			<p class="submit"><input type="submit" value="Войти"</p>
-		</form>
-		<p class="title">Рабочая программа дисциплины</p>
-		<p class="logo">APM</p>
-	</login>
+
+<welcome>
+    <div class="pixels"></div>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Войти
+    </button>
+</welcome>
+
+<!-- Modal -->
+<login class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Войти</h4>
+            </div>
+            <form action="/auth" method="post">
+                <div class="modal-body">
+                    <input class="form-control" placeholder="Имя пользователя" type="text" name="login">
+                <br/>
+                    <input class="form-control" placeholder="Пароль" type="password" name="pass">
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-primary" type="submit" value="Войти">
+                </div>
+            </form>
+        </div>
+    </div>
+</login>
+<div class="d-inline-block bg-warning">
+    <h3>inline-block</h3>
+    Boot that strap!
+</div>
+<div class="d-inline-block bg-warning">
+    <h3>inline-block</h3>
+    Strap that boot!
+</div>
 </body>
 </html>

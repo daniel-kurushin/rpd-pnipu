@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rpm</title>
+
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="row head">
+    <div class="col-xs-2">
+        <div class="header_logo">
+            <div class="header_logo_text col-xs-8">
+                Рабочая
+                Программа
+                Дисциплины
+            </div>
+            <div class="header_logo_ellipse col-xs-3">
+                <div class="header_logo_ellipse_text">
+                    АРМ
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_title col-xs-8">
+        Пермский национальный исследовательский политехнический университет
+        <form class="input-group search_frm" action="/rpd_main/" method="get" >
+            <input type="text" class="form-control search_text" name="query">
+            <input type="hidden" name="login" value="">
+            <span class="input-group-btn">
+        <input type="submit" class="btn btn-default" value="Поиск"></input>
+      </span>
+        </form>
+    </div>
+    <div class="header_pstu col-xs-2">
+        <div class="logo_pstu"></div>
+    </div>
+    <div class="col-xs-12 nav"></div>
+</header>
+
+
+
+<div class="row row-content" style="min-width:1000px;">
+    <div class="tab-panel">
+        <ul class="tab-menu">
+            <li>
+                <a class="collection-item " href="http://localhost:3000/page1.html">
+                    Титульный лист
+                </a>
+            </li>
+            <li>
+                <a class="collection-item " href="http://localhost:3000/page2.html">
+                    Общие положения
+                </a>
+            </li>
+            <li>
+                <a class="collection-item " href="http://localhost:3000/page3.html">
+                    Место дисциплины в структуре ОП
+                </a>
+            </li>
+            <li>
+                <a class="collection-item" href="http://localhost:3000/page4.html">
+                    Объем и содержание УД
+                </a>
+            </li>
+            <li>
+                <a class="collection-item" href="http://localhost:3000/page5.html">
+                    Перечень учебно-методического обеспечения для СРС
+                </a>
+            </li>
+            <li>
+                <a class="collection-item" href="http://localhost:3000/page6.html">
+                    ФОС
+                </a>
+            </li>
+            <li>
+                <a class="collection-item tab-selected" href="http://localhost:3000/page7.html">
+                    Список литературы
+                </a>
+            </li>
+            <li>
+                <a class="collection-item" href="http://localhost:3000/page8.html">
+                    Перечень ИТ
+                </a>
+            </li>
+            <li>
+                <a class="collection-item" href="http://localhost:3000/page9.html">
+                    Описание МТБ
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div>
+            <h3 class="title-page">
+                Список литературы
+            </h3>
+        </div>
+        <div class="subtitle-page">
+            Основная литература
+        </div>
+        <div class="row row-content">
+            <table class="table-content">
+                <thead>
+                <tr>
+                    <th class="td-bw th-num">
+                        №
+                    </th>
+                    <th class="td-bw">
+                        Наименование
+                    </th>
+                    <th class="td-bw td-delete"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <baseLit>
+                    <tr><!-- Заглушка -->
+                        <th class="td-bw th-num">1</th>
+                        <th class="td-bw th-name" contenteditable="true">
+                            <div class="name-decor">
+                            Наименование1
+                        </div>
+                        </th>
+                        <th class="td-bw td-delete"></th>
+                    </tr>
+                </baseLit>
+                </tbody>
+            </table>
+        </div>
+        <div class="subtitle-page">
+            Дополнительная литература
+        </div>
+        <div class="row row-content">
+            <table class="table-content">
+                <thead>
+                <tr>
+                    <th class="td-bw th-num">
+                        №
+                    </th>
+                    <th class="td-bw">
+                        Наименование
+                    </th>
+                    <th class="td-bw td-delete"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <addLit>
+                    <tr><!-- Заглушка -->
+                        <th class="td-bw th-num">1</th>
+                        <th class="td-bw th-name" contenteditable="true">
+                            <div class="name-decor">
+                            Наименование1
+                        </div>
+                        </th>
+                        <th class="td-bw td-delete"></th>
+                    </tr>
+                </addLit>
+                </tbody>
+            </table>
+        </div>
+        <div class="subtitle-page">
+            Учебные издания
+        </div>
+        <div class="row row-content">
+            <table class="table-content">
+                <thead>
+                <tr>
+                    <th class="td-bw th-num">
+                        №
+                    </th>
+                    <th class="td-bw">
+                        Наименование
+                    </th>
+                    <th class="td-bw td-delete"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <educationEditions>
+                    <tr><!-- Заглушка -->
+                        <th class="td-bw th-num">1</th>
+                        <th class="td-bw th-name" contenteditable="true">
+                            <div class="name-decor">
+                            Наименование1
+                        </div>
+                        </th>
+                        <th class="td-bw td-delete"></th>
+                    </tr>
+                </educationEditions>
+                </tbody>
+            </table>
+        </div>
+        <div class="subtitle-page">
+            Научные издания
+        </div>
+        <div class="row row-content">
+            <table class="table-content">
+                <thead>
+                <tr>
+                    <th class="td-bw th-num">
+                        №
+                    </th>
+                    <th class="td-bw">
+                        Наименование
+                    </th>
+                    <th class="td-bw td-delete"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <scienceEditions>
+                    <tr><!-- Заглушка -->
+                        <th class="td-bw th-num">1</th>
+                        <th class="td-bw th-name" contenteditable="true">
+                            <div class="name-decor">
+                            Наименование1
+                        </div>
+                        </th>
+                        <th class="td-bw td-delete"></th>
+                    </tr>
+                </scienceEditions>
+                </tbody>
+            </table>
+        </div>
+        <div class="subtitle-page">
+            Периодические издания
+        </div>
+        <div class="row row-content">
+            <table class="table-content">
+                <thead>
+                <tr>
+                    <th class="td-bw th-num">
+                        №
+                    </th>
+                    <th class="td-bw">
+                        Наименование
+                    </th>
+                    <th class="td-bw td-delete"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <periodicEditions>
+                    <tr><!-- Заглушка -->
+                        <th class="td-bw th-num">1</th>
+                        <th class="td-bw th-name" contenteditable="true">
+                            <div class="name-decor">
+                            Наименование1
+                            </div>
+                        </th>
+                        <th class="td-bw td-delete"></th>
+                    </tr>
+                </periodicEditions>
+                </tbody>
+            </table>
+        </div>
+        <tab-content-footer>
+            Где искать:
+            <ul>
+                </br>
+                <li>
+                    <a href="http://elib.pstu.ru/" target="_blank">
+                        Электронная библиотека ПНИПУ
+                    </a>
+                </li>
+                <li>
+                    <a href="https://e.lanbook.com/" target="_blank">
+                        Электронно-библиотечная система ЛАНЬ
+                    </a>
+                </li>
+            </ul>
+        </tab-content-footer>
+    </div>
+</div>
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <utv><a class="btn btn-primary" href="/" title="">Отправить на Утв.</a></utv>
+    <save><a class="btn btn-primary" href="/" title="">Сохранить</a></save>
+    <preview><a class="btn btn-primary" href="/" title="">Просмотр</a></preview>
+    <logout><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Выход
+    </button></logout>
+    <about><a class="btn btn-primary" href="" title="">О программе</a></about>
+
+</footer>
+<confirm-exit class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Выход</h4>
+            </div>
+            <form action="/auth" method="post">
+                <div class="modal-body">
+                    <p>Вы действительно хотите выйти из Системы?</p>
+                </div>
+                <div class="modal-footer">
+                    <yes><a href="/" class="btn btn-primary"> Да </a></yes>
+                    <no><button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Нет</button></no>
+                </div>
+            </form>
+        </div>
+    </div>
+</confirm-exit>
+</body>
+</html>

@@ -1,0 +1,35 @@
+// Import Bootstrap Compass integration
+@import "bootstrap-compass";
+
+// Import custom Bootstrap variables
+@import "bootstrap-variables";
+
+// Import Bootstrap for Sass
+@import "bootstrap";
+
+
+
+// Import general styles
+@import "general";
+
+
+
+// Import header styles
+@import "header";
+
+
+
+// Import content styles
+@import "auth";
+@import "content";
+@import "wlogo";
+@import "main";
+@import "perObesp";
+@import "fos";
+@import "literature";
+@import "ITList";
+
+
+
+// Import footer styles
+@import "footer";

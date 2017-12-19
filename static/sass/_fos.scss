@@ -1,0 +1,63 @@
+.fos-btn{
+  float: left;
+  line-height: 3rem;
+  background-color: #5990CA;
+  color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.file-field {
+  position: relative;
+}
+
+.input-field {
+  position: relative;
+  margin-top: 1rem;
+  border-bottom: 1px solid #9e9e9e;
+}
+
+.file-field input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.file-field .file-path-wrapper {
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+.file-field input.file-path {
+  width: 100%;
+}
+
+.validate{
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 4.5rem;
+  width: 100%;
+  font-size: 1.5rem;
+  margin: 0 0 15px 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all .3s;
+}

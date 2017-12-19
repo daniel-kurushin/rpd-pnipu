@@ -22,7 +22,7 @@ def get_soup():
 def get_xlsx(href):
 	if not href.startswith('http://pstu.ru'):
 		href = "http://pstu.ru" + href
-	fname = "/tmp/%s" % href.split('/')[-1]
+	fname = "xls/%s" % href.split('/')[-1]
 	try:
 		_ = open(fname)
 	except FileNotFoundError:
@@ -118,6 +118,14 @@ def get_disc_structure(wb):
 
 	return rez
 
+def make_flat(structure = {}):
+	rez = {}
+	for faculty in structure.keys():
+		for plan in structure[faculty]:
+			subject_data = {}
+			for subject in plan["Учебный план"]["Дисциплины"].keys():
+				rez.update({subject:1})
+	return rez
 
 def main():
 	table = get_soup().find('div', 'content').find('table')
@@ -158,6 +166,7 @@ def main():
 			plan["Учебный план"] = get_plan_structure(wb)
 			plan["Учебный план"].update({"Дисциплины":get_disc_structure(wb)})
 
+	structure = make_flat(structure)
 
 	print(dumps(structure, indent = 4, ensure_ascii = 0))
 

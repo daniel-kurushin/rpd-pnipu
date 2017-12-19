@@ -1,0 +1,108 @@
+.collection-item{
+  border-bottom: none;
+  display: block;
+  background-color: #fff;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  color: rgba(0,0,0,0.87);
+  &:hover{
+    background: #e2e2e2;
+    text-decoration: none;
+    color: rgba(0,0,0,0.87);
+    transition: 0.25s;
+  }
+}
+
+.tab-panel{
+  float: left;
+  margin: 10px 0px 0px 30px;
+  padding: 0px;
+  max-width: 300px;
+}
+
+.tab-menu{
+  border: unset;
+  overflow: unset;
+  margin: 0px;
+  list-style-type: none;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(0,0,0,0.87);
+  padding: 0px;
+}
+
+.row-content{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+}
+
+.tab-selected{
+  border: 2px solid !important;
+  border-right: 2px solid white !important;
+  margin-right: -2px !important;
+}
+
+.tab-content{
+  overflow: auto;
+  border: 2px solid;
+  padding: 0px 10px 10px 10px;
+  min-height: 450px;
+  margin-right: 10px;
+  margin-bottom:50px;
+}
+
+.title-page{
+  text-align: center;
+  border-bottom: 2px dashed;
+  padding-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+}
+th{
+  text-align: center;
+}
+
+.table-content{
+  width: 100%;
+  display: table;
+}
+
+.th-num{
+  width: 30px;
+}
+
+.td-delete{
+  width: 30px;
+  cursor: pointer;
+}
+
+.td-bw{
+  border: 1px solid;
+  text-align: center;
+  padding: 15px 5px;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.th-name{
+  contenteditable: true;
+  text-decoration-color: #a0a0a0;
+}
+
+.name-decor{
+  color: #a0a0a0;
+  text-align: left;
+}
+
+body{
+  font-size: 15px;
+}
+
+a{
+  color: #039be5;
+}

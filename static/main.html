@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rpm</title>
+
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="row head">
+    <div class="col-xs-2">
+        <div class="header_logo">
+            <div class="header_logo_text col-xs-8">
+                Рабочая
+                Программа
+                Дисциплины
+            </div>
+            <div class="header_logo_ellipse col-xs-3">
+                <div class="header_logo_ellipse_text">
+                    АРМ
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_title col-xs-8">
+        Пермский национальный исследовательский политехнический университет
+        <form class="input-group search_frm" action="/rpd_main/" method="get">
+            <input type="text" class="form-control search_text" name="query">
+            <input type="hidden" name="login" value="">
+            <span class="input-group-btn">
+        <input type="submit" class="btn btn-default" value="Поиск"></input>
+      </span>
+        </form>
+    </div>
+    <div class="header_pstu col-xs-2">
+        <div class="logo_pstu"></div>
+    </div>
+    <div class="col-xs-12 nav"></div>
+</header>
+<div class="container">
+    <aside class="col-xs-3">
+        <form action="" method="get" id="Форма обучения">
+            <apply-filter class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Фильтровать результаты</span>
+                <div class="col-xs-12 editor_content">
+                    <input class="btn btn-primary btn-lg" type="submit" value="Применить фильтры">
+                </div>
+            </apply-filter>
+            <learn-form class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Форма обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input name="learn-form" id="очная" type="radio"><label for="очная">Очная</label>
+                    <input name="learn-form" id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </learn-form>
+            <field-of-study class="editor col-xs-12" id="Направление обучения">
+                <span class="col-xs-12 editor_title">Направление обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input name="field-of-study" id="очная" type="radio"><label for="очная">Очная</label>
+                    <input name="field-of-study" id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </field-of-study>
+            <learning-profile class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Профиль обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input id="очная" type="radio"><label for="очная">Очная</label>
+                    <input id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </learning-profile>
+            <apply-filter class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Фильтровать результаты</span>
+                <div class="col-xs-12 editor_content">
+                    <input class="btn btn-primary btn-lg" type="submit" value="Применить фильтры">
+                </div>
+            </apply-filter>
+            <learn-form class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Форма обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input name="learn-form" id="очная" type="radio"><label for="очная">Очная</label>
+                    <input name="learn-form" id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </learn-form>
+            <field-of-study class="editor col-xs-12" id="Направление обучения">
+                <span class="col-xs-12 editor_title">Направление обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input name="field-of-study" id="очная" type="radio"><label for="очная">Очная</label>
+                    <input name="field-of-study" id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </field-of-study>
+            <learning-profile class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Профиль обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input id="очная" type="radio"><label for="очная">Очная</label>
+                    <input id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </learning-profile>
+            <apply-filter class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Фильтровать результаты</span>
+                <div class="col-xs-12 editor_content">
+                    <input class="btn btn-primary btn-lg" type="submit" value="Применить фильтры">
+                </div>
+            </apply-filter>
+            <learn-form class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Форма обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input name="learn-form" id="очная" type="radio"><label for="очная">Очная</label>
+                    <input name="learn-form" id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </learn-form>
+            <field-of-study class="editor col-xs-12" id="Направление обучения">
+                <span class="col-xs-12 editor_title">Направление обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input name="field-of-study" id="очная" type="radio"><label for="очная">Очная</label>
+                    <input name="field-of-study" id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </field-of-study>
+            <learning-profile class="editor col-xs-12">
+                <span class="col-xs-12 editor_title">Профиль обучения</span>
+                <div class="col-xs-12 editor_content">
+                    <input id="очная" type="radio"><label for="очная">Очная</label>
+                    <input id="заочная" type="radio"><label for="заочная">Заочная</label>
+                </div>
+            </learning-profile>
+        </form>
+    </aside>
+    <div class="col-xs-9 list">
+        <subjectlist class="col-xs-12 subjectlist">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                <tr>
+                    <th>Code</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                <tr>
+                    <td>AAC</td>
+                </tr>
+                <tr>
+                    <td>AAD</td>
+                </tr>
+                <tr>
+                    <td>AAX</td>
+                </tr>
+                <tr>
+                    <td>XXD</td>
+                </tr>
+                </tbody>
+            </table>
+        </subjectlist>
+        <div class="col-xs-12 list_nav">
+
+            <back><a class="btn btn-default" href="" title="">← Назад</a></back>
+            <reset><a class="btn btn-default" href="" title="">Сброс</a></reset>
+            <forward><a class="btn btn-default" href="" title="">Вперед →</a></forward>
+        </div>
+    </div>
+
+    <footer class="navbar navbar-default navbar-fixed-bottom" >
+        <logout><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Выход
+        </button></logout>
+        <about><a class="btn btn-primary" href="" title="">О программе</a></about>
+
+    </footer>
+
+    <confirm-exit class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Выход</h4>
+                </div>
+                <form action="/auth" method="post">
+                    <div class="modal-body">
+                        <p>Вы действительно хотите выйти из Системы?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <yes><a href="/" class="btn btn-primary"> Да </a></yes>
+                        <no><button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Нет</button></no>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </confirm-exit>
+</div>
+</body>
+</html>
