@@ -30,13 +30,17 @@ def get_clear_blocks(raw_blocks, stored_blocks_db='./rpd_db.json'):
     """Приводит полученные входные значения ПСБ raw_blocks к сохранненому эталону из stored_blocks_db"""
     cleared_blocks = {}
     with json.load(open(stored_blocks_db, 'r', encoding='utf-8')) as db:
-        for block_name in raw_blocks.keys():
-            for clear_name in db.keys():
-                if 1.0 <= NCP(block_name, clear_name) <= 1.5:
-                    # в настоящее время эта часть реализована исключительно в тестовом режиме
-                    # в дальнейшем необходим синтез двух вариантов значения — из базы и из входящих данных
-                    if 1.0 <= NCP(raw_blocks[block_name], db[clear_name]) <= 1.5:
-                        cleared_blocks[clear_name] = db.keys[clear_name]
+        for raw_name in raw_blocks.keys():
+            for stored_name in db.keys():
+                if 1.0 <= NCP(raw_name, stored_name) <= 1.5:
+                    new_value = raw_blocks[raw_name]
+                    for stored_value in db[stored_name]:
+                        if 1.0 <= NCP(new_value, stored_value) <= 1.5:
+                            cleared_blocks[stored_name] = stored_value
+                        elif NCP(new_value, stored_value) > 10:  # возможно, имеет смысл поменять просто на else
+                            db[stored_name].append(new_value)
+                            cleared_blocks[stored_name] = new_value
+                            json.dump(db, open(stored_blocks_db, 'r', encoding='utf-8'), ensure_ascii=False, indent=4)
     return cleared_blocks
 
 
