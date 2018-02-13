@@ -105,7 +105,7 @@
             </div>
             <div class="row row-content">
 			<title_list>
-                <table class="table-content">
+                <table id="editcontent" class="table-content">
                     <tbody>
 					<tr class="tr-hover">
 						<td class="text-bold td-bc">Название РПД</td>
@@ -183,7 +183,8 @@
     </div>
 <footer class="navbar navbar-default navbar-fixed-bottom">
     <utv><a class="btn btn-primary" href="/" title="">Отправить на Утв.</a></utv>
-    <save><a class="btn btn-primary" href="/" title="">Сохранить</a></save>
+    <button id="save" class="btn btn-primary">Сохранить</a></button>
+    <button id="load" class="btn btn-primary">Загрузить</a></button>
     <preview><a class="btn btn-primary" href="/" title="">Просмотр</a></preview>
     <logout><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
         Выход
@@ -211,6 +212,43 @@
     </div>
 </confirm-exit>
 
+<script>
+    // $('load', function()
+    // {
+    //     // if (localStorage.getItem('saved_content'))
+    //     // {
+    //     //     content_to_save.html(localStorage.getItem('saved_content'));
+    //     // }
+    // });
+
+    var content_to_save = $('#editcontent');
+
+    $('#save').on('click', function()
+    {
+        var edited_content = content_to_save.html()
+        // localStorage.setItem('saved_content', edited_content);
+        
+        $.ajax({
+        url: window.location.toString(),
+        headers: {"edited-content" : "1"},
+        data: edited_content,
+        type: "POST",
+        success: alert("Saved RPD")
+      });
+
+
+    });
+
+    $('#load').on('click', function()
+    {
+        var loaded_content = $.get('/static/temp_storage/' + window.location.pathname.substring(8), function(data)
+        {
+            content_to_save.html(data);
+            alert("Loaded RPD");
+        });
+    });
+
+</script>
 
 </body>
 </html>

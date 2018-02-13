@@ -5,6 +5,7 @@ import sys
 import re
 import math
 import json
+import os
 
 from docx import Document
 from bs4 import BeautifulSoup as BS
@@ -26,22 +27,52 @@ def load_blocks(input_file='./rpd.json'):
     return json.load(open(input_file, 'r', encoding='utf-8'))
 
 
-def get_clear_blocks(raw_blocks, stored_blocks_db='./rpd_db.json'):
+def get_clear_types(raw_element, stored_element):
+    """Обрабатывает каждый тип сырых данных с попыткой приведения его к сохраненному эталону"""
+    # тут пока что принимается на доверие, что типы сырого и сохраненного элемента совпадают, но это только пока
+    if isinstance(raw_element, str):
+        if 1.0 <= NCP(raw_element, stored_element) <= 1.5:
+            return stored_element
+        else:  # возможно, имеет смысл поменять просто на else
+            return raw_element
+    elif isinstance(raw_element, list):
+        clear_list = []
+        for i in range(0, len(raw_element)):
+            if i < len(stored_element):
+                clear_list.append(get_clear_types(raw_element[i], stored_element[i]))
+            elif len(stored_element) > i:
+                clear_list.append(stored_element[i:])
+            else:
+                clear_list.append(raw_element[i])
+        return clear_list
+    elif isinstance(raw_element, dict):
+        clear_dict = {}
+        for key in raw_element.keys():
+            for cl_key in stored_element.keys():
+                if 1.0 <= NCP(key, cl_key) <= 1.5:
+                    clear_dict[cl_key] = get_clear_types(raw_element[key], stored_element[cl_key])
+                else:
+                    clear_dict[key] = get_clear_types(raw_element[key], stored_element[cl_key])
+            else:
+                clear_dict[key] = raw_element[key]
+    else:
+        return raw_element
+
+
+def get_clear_blocks(input_file='rpd.json'):
     """Приводит полученные входные значения ПСБ raw_blocks к сохранненому эталону из stored_blocks_db"""
-    cleared_blocks = {}
-    with json.load(open(stored_blocks_db, 'r', encoding='utf-8')) as db:
+    try:
+        raw_blocks = load_blocks(input_file)
+        clear_blocks = load_blocks('clear_rpds/' + input_file[:-5] + '_clear.json')
+        cleared_blocks = {}
         for raw_name in raw_blocks.keys():
-            for stored_name in db.keys():
-                if 1.0 <= NCP(raw_name, stored_name) <= 1.5:
-                    new_value = raw_blocks[raw_name]
-                    for stored_value in db[stored_name]:
-                        if 1.0 <= NCP(new_value, stored_value) <= 1.5:
-                            cleared_blocks[stored_name] = stored_value
-                        elif NCP(new_value, stored_value) > 10:  # возможно, имеет смысл поменять просто на else
-                            db[stored_name].append(new_value)
-                            cleared_blocks[stored_name] = new_value
-                            json.dump(db, open(stored_blocks_db, 'r', encoding='utf-8'), ensure_ascii=False, indent=4)
-    return cleared_blocks
+            for clear_name in clear_blocks.keys():
+                if 1.0 <= NCP(raw_name, clear_name) <= 1.5:
+                    cleared_blocks[clear_name] = get_clear_types(raw_blocks[raw_name], clear_blocks[clear_name])
+        return cleared_blocks
+    except FileNotFoundError:
+        print('No stored RPD template found, returning as is')
+        return load_blocks(input_file)
 
 
 def process_types(element):
@@ -91,6 +122,7 @@ def build_rpd_docx(rpd_string='', file_name='rpd.docx'):
 
 
 if __name__ == '__main__':
-    # current_data_blocks = get_clear_blocks(load_blocks())
+    # current_data_blocks = get_clear_blocks('rpd_0.json')
+    # print(current_data_blocks)
     current_data_blocks = load_blocks()
     build_rpd_docx(generate_text(current_data_blocks))
