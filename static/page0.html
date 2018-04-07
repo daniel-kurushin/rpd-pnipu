@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rpm</title>
+
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="row head">
+    <div class="col-xs-2">
+        <div class="header_logo">
+            <div class="header_logo_text col-xs-8">
+                Рабочая
+                Программа
+                Дисциплины
+            </div>
+            <div class="header_logo_ellipse col-xs-3">
+                <div class="header_logo_ellipse_text">
+                    АРМ
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_title col-xs-8">
+        Пермский национальный исследовательский политехнический университет
+        <form class="input-group search_frm" action="/rpd_main/" method="get">
+            <input type="text" class="form-control search_text" name="query">
+            <input type="hidden" name="login" value="">
+            <span class="input-group-btn">
+        <input type="submit" class="btn btn-default" value="Поиск"></input>
+      </span>
+        </form>
+    </div>
+    <div class="header_pstu col-xs-2">
+        <div class="logo_pstu"></div>
+    </div>
+    <div class="col-xs-12 nav"></div>
+</header>
+
+
+
+    <div class="row row-content">
+        <div class="tab-panel">
+            <ul class="tab-menu">
+                <li>
+                    <a class="collection-item tab-selected" href="page0.html">
+                        Поиск РПД
+                    </a>
+                </li>
+                <!-- <li>
+                    <a class="collection-item" href="page2.html">
+                        Общие положения
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item" href="page3.html">
+                        Место дисциплины в структуре ОП
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item" href="page4.html">
+                        Объем и содержание УД
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item " href="page5.html">
+                        Перечень учебно-методического обеспечения для СРС
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item" href="page6.html">
+                        ФОС
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item" href="page7.html">
+                        Список литературы
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item" href="page8.html">
+                        Перечень ИТ
+                    </a>
+                </li>
+                <li>
+                    <a class="collection-item" href="page9.html">
+                        Описание МТБ
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div>
+                <h3 class="title-page">
+                    Поиск рабочей программы дисциплины
+                </h3>
+            </div>
+            <div class="row row-content">
+                <table id="editcontent" class="table-content">
+                    <tbody>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Название РПД</td>
+						<td id="name_field" contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Факультет</td>
+						<td id="faculty_field" contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<!-- <tr class="tr-hover">
+						<td class="text-bold td-bc">Выпускающая кафедра</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Программа</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr> -->
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Направление подготовки</td>
+						<td id="speciality_field" contenteditable="true" class="td-bc td-search ng-binding"></td>
+					</tr>
+					<!-- <tr class="tr-hover">
+						<td class="text-bold td-bc">Профиль</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Квалификация выпускника</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Форма обучения</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Курс</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr> -->
+					<!-- <tr class="tr-hover">
+						<td class="text-bold td-bc">Кредитов по рабочему учебному плану</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Часов по рабочему учебному плану</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr>
+					<tr class="tr-hover">
+						<td class="text-bold td-bc">Год</td>
+						<td contenteditable="true" class="td-bc ng-binding"></td>
+					</tr> -->
+				</tbody>
+                </table>
+                <button id="search" class="btn btn-primary footer-btn">Найти</button>
+            </div>
+			</div>
+    </div>
+
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <!-- <button class="btn btn-primary footer-btn">Отправить на утв.</button>
+    <button id="docx" class="btn btn-primary footer-btn">Выгрузить в DOCX</button>
+    <button id="load" class="btn btn-primary footer-btn">Загрузить</button>
+    <button id="about" class="btn btn-primary footer-btn-right">О программе</button> -->
+    <button class="btn btn-primary footer-btn-right" data-toggle="modal" data-target="#myModal">Выход</button>
+</footer>
+
+<confirm-exit class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Выход</h4>
+            </div>
+            <form action="/auth" method="post">
+                <div class="modal-body">
+                    <p>Вы действительно хотите выйти из Системы?</p>
+                </div>
+                <div class="modal-footer">
+                    <yes><a href="/" class="btn btn-primary"> Да </a></yes>
+                    <no><button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Нет</button></no>
+                </div>
+            </form>
+        </div>
+    </div>
+</confirm-exit>
+
+<script>
+    // $('load', function()
+    // {
+    //     // if (localStorage.getItem('saved_content'))
+    //     // {
+    //     //     content_to_save.html(localStorage.getItem('saved_content'));
+    //     // }
+    // });
+
+    $('#search').on('click', function()
+    {
+        var name = $('#name_field').html();
+        var faculty = $('#faculty_field').html();
+        var speciality = $('#speciality_field').html();
+        if (name.includes("данн") || faculty.includes("электротех") || speciality.includes("инженер") || speciality.includes("09.03.04"))
+        {
+            window.open("./page1.html", "_blank");
+        }
+        else
+        {
+            alert("Database has not found any entries");
+        }
+    });
+
+</script>
+
+</body>
+</html>

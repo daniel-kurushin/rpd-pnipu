@@ -410,3 +410,8 @@ a {
   border: 1px solid;
   padding: 2px 5px;
 }
+
+.td-search
+{
+  width: 66%;
+}
