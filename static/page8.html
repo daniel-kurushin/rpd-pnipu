@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -51,47 +52,47 @@
         <div class="tab-panel">
             <ul class="tab-menu">
                 <li>
-                    <a class="collection-item " href="http://localhost:3000/page1.html">
+                    <a class="collection-item" href="page1.html">
                         Титульный лист
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item " href="http://localhost:3000/page2.html">
+                    <a class="collection-item" href="page2.html">
                         Общие положения
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item " href="http://localhost:3000/page3.html">
+                    <a class="collection-item" href="page3.html">
                         Место дисциплины в структуре ОП
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item" href="http://localhost:3000/page4.html">
+                    <a class="collection-item" href="page4.html">
                         Объем и содержание УД
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item" href="http://localhost:3000/page5.html">
+                    <a class="collection-item " href="page5.html">
                         Перечень учебно-методического обеспечения для СРС
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item" href="http://localhost:3000/page6.html">
+                    <a class="collection-item" href="page6.html">
                         ФОС
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item" href="http://localhost:3000/page7.html">
+                    <a class="collection-item" href="page7.html">
                         Список литературы
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item tab-selected" href="http://localhost:3000/page8.html">
+                    <a class="collection-item tab-selected" href="page8.html">
                         Перечень ИТ
                     </a>
                 </li>
                 <li>
-                    <a class="collection-item" href="http://localhost:3000/page9.html">
+                    <a class="collection-item" href="page9.html">
                         Описание МТБ
                     </a>
                 </li>
@@ -132,16 +133,16 @@
             </page8content>
         </div>
     </div>
-<footer class="navbar navbar-default navbar-fixed-bottom">
-    <utv><a class="btn btn-primary" href="/" title="">Отправить на Утв.</a></utv>
-    <save><a class="btn btn-primary" href="/" title="">Сохранить</a></save>
-    <preview><a class="btn btn-primary" href="/" title="">Просмотр</a></preview>
-    <logout><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        Выход
-    </button></logout>
-    <about><a class="btn btn-primary" href="" title="">О программе</a></about>
 
+<footer class="navbar navbar-default navbar-fixed-bottom">
+    <button class="btn btn-primary footer-btn">Отправить на утв.</button>
+    <button class="btn btn-primary footer-btn">Выгрузить в DOCX</button>
+    <button id="save" class="btn btn-primary footer-btn">Сохранить</button>
+    <button id="load" class="btn btn-primary footer-btn">Загрузить</button>
+    <button class="btn btn-primary footer-btn-right" data-toggle="modal" data-target="#myModal">Выход</button>
+    <button id="about" class="btn btn-primary footer-btn-right">О программе</button>
 </footer>
+
 <confirm-exit class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
